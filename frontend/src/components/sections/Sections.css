@@ -1,0 +1,219 @@
+.curriculum-section {
+  background-color: var(--text-white);
+}
+
+.curriculum-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.curriculum-item {
+  display: flex;
+  gap: 30px;
+  background-color: var(--secondary-bg);
+  padding: 35px 45px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+.curriculum-item:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-strong);
+}
+
+.c-icon {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  background-color: var(--text-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.c-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
+
+.activities-section {
+  background-color: rgba(253, 224, 113, 0.15); /* light yellow */
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.activity-card {
+  background: var(--text-white);
+  padding: 40px 24px;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+}
+
+.act-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--text-dark);
+}
+
+.activity-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 992px) {
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .curriculum-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  
+  .c-icon {
+    margin: 0 auto;
+  }
+  
+  .curriculum-item:hover {
+    transform: translateY(-5px);
+    transform: translateX(0);
+  }
+  
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Testimonials Styles */
+.testimonials-section {
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================================== */
+/* HOVER INTERACTIONS (Cards & Texts) */
+/* ==================================== */
+.curriculum-item, .activity-card, .testimonial-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.curriculum-item:hover, .activity-card:hover, .testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-strong);
+  cursor: pointer;
+}
+
+.c-text h3 {
+  transition: color 0.3s ease;
+}
+.curriculum-item:hover .c-text h3 {
+  color: var(--primary-pink);
+}
+
+.activity-card h4 {
+  transition: color 0.3s ease;
+}
+.activity-card:hover h4 {
+  color: var(--primary-blue);
+}
+
+.testimonial-card h4 {
+  transition: color 0.3s ease;
+}
+.testimonial-card:hover h4 {
+  color: var(--primary-pink);
+}
+
+.testimonial-text {
+  transition: color 0.3s ease;
+}
+.testimonial-card:hover .testimonial-text {
+  color: var(--primary-blue);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: var(--text-white);
+  padding: 40px 30px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+}
+
+.quote-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  opacity: 0.15;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.testimonial-text {
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  font-style: italic;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.testimonial-author h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.testimonial-author span {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+@media (max-width: 992px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}

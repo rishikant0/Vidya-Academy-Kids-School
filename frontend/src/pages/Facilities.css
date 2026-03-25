@@ -1,0 +1,132 @@
+.facilities-header {
+  background-color: var(--primary-green);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+  color: var(--text-dark);
+  padding: 80px 0 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.relative-container {
+  position: relative;
+  z-index: 2;
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: -1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-pink {
+  width: 150px;
+  height: 150px;
+  background-color: var(--primary-pink);
+  top: -40px;
+  left: -20px;
+}
+
+.shape-yellow {
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary-yellow);
+  bottom: -20px;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-top: 30px;
+}
+
+.facility-card {
+  position: relative;
+  background: var(--text-white);
+  padding: 50px 30px 40px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.facility-card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-strong);
+}
+
+.facility-icon-wrap {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--secondary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  box-shadow: inset 0 -4px 10px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 2;
+}
+
+.facility-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  z-index: 2;
+  position: relative;
+  color: var(--text-dark);
+}
+
+.facility-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  z-index: 2;
+  position: relative;
+}
+
+/* Colorful Card Styles */
+.card-decoration {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.facility-card:hover .card-decoration {
+  transform: scale(3.5);
+  opacity: 0.08;
+}
+
+.style-1 .card-decoration { background: var(--primary-pink); }
+.style-2 .card-decoration { background: var(--primary-blue); }
+.style-3 .card-decoration { background: var(--primary-yellow); }
+.style-4 .card-decoration { background: var(--primary-green); }
+
+.style-1:hover { border-bottom: 6px solid var(--primary-pink); }
+.style-2:hover { border-bottom: 6px solid var(--primary-blue); }
+.style-3:hover { border-bottom: 6px solid var(--primary-yellow); }
+.style-4:hover { border-bottom: 6px solid var(--primary-green); }
+
+@media (max-width: 992px) {
+  .facilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .facilities-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
