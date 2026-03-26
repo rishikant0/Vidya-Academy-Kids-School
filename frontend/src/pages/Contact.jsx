@@ -1,67 +1,86 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
   return (
     <div className="contact-container">
-      <section className="contact-header section text-center">
-        <div className="container">
-          <h1 className="section-title" data-aos="fade-down">Contact Us</h1>
-          <p className="section-subtitle" data-aos="fade-down" data-aos-delay="100">We would love to hear from you. Reach out to us for any queries.</p>
+      {/* Hero */}
+      <section className="page-hero contact-hero">
+        <div className="page-hero-overlay"></div>
+        <div className="container page-hero-content" data-aos="fade-up">
+          <span className="section-badge" style={{background: 'rgba(255,255,255,0.15)', color: 'var(--sunny-yellow)', border: '1px solid rgba(255,255,255,0.2)'}}>Contact</span>
+          <h1>Contact Us</h1>
+          <p>We would love to hear from you. Reach out for any queries.</p>
+        </div>
+        <div className="wave-divider">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z" fill="white"/>
+          </svg>
         </div>
       </section>
 
-      <section className="contact-content-section section">
+      {/* Content */}
+      <section className="contact-content section">
         <div className="container contact-grid">
-          
-          <div className="contact-info-cards" data-aos="fade-right">
+          <div className="contact-cards" data-aos="fade-right">
             <div className="contact-card">
-              <div className="contact-icon icon-pink"><MapPin size={32} color="var(--text-white)" /></div>
-              <div className="contact-details">
-                <h3>Our Location</h3>
-                <p>RIMS Ranchi</p>
+              <div className="contact-icon" style={{background: 'linear-gradient(135deg, #F48FB1, #E91E63)'}}>
+                <MapPin size={24} color="white" />
+              </div>
+              <div>
+                <h4>Our Location</h4>
+                <p>RIMS Bariyatu Road, Ranchi, Jharkhand</p>
               </div>
             </div>
-            
+
             <div className="contact-card">
-              <div className="contact-icon icon-blue"><Phone size={32} color="var(--text-white)" /></div>
-              <div className="contact-details">
-                <h3>Phone Number</h3>
-                <p>+91 6207383145<br/>+91 12345 67890</p>
+              <div className="contact-icon" style={{background: 'linear-gradient(135deg, #4FC3F7, #1565C0)'}}>
+                <Phone size={24} color="white" />
+              </div>
+              <div>
+                <h4>Phone Number</h4>
+                <p>+91 6207383145</p>
               </div>
             </div>
-            
+
             <div className="contact-card">
-              <div className="contact-icon icon-yellow"><Mail size={32} color="var(--text-dark)" /></div>
-              <div className="contact-details">
-                <h3>Email Address</h3>
-                <p>kumarrishikant660@gmail.com<br/>aprk0527@gmail.com</p>
+              <div className="contact-icon" style={{background: 'linear-gradient(135deg, #FFD54F, #FF9800)'}}>
+                <Mail size={24} color="white" />
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>kumarrishikant660@gmail.com</p>
               </div>
             </div>
-            
+
             <div className="contact-card">
-              <div className="contact-icon icon-green"><Clock size={32} color="var(--text-dark)" /></div>
-              <div className="contact-details">
-                <h3>Office Hours</h3>
-                <p>Mon-Sat: 8:00 AM - 4:00 PM<br/>Sunday: Closed</p>
+              <div className="contact-icon" style={{background: 'linear-gradient(135deg, #81C784, #43A047)'}}>
+                <Clock size={24} color="white" />
+              </div>
+              <div>
+                <h4>Office Hours</h4>
+                <p>Mon-Sat: 8:00 AM - 4:00 PM</p>
               </div>
             </div>
+
+            <a href="https://maps.google.com/?q=RIMS+Ranchi" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{marginTop: '12px', width: '100%'}}>
+              Get Directions <ExternalLink size={16} />
+            </a>
           </div>
 
           <div className="map-container" data-aos="fade-left">
-            <iframe 
-              title="Vidya Academy Kids School Location"
+            <iframe
+              title="School Location"
               src="https://maps.google.com/maps?q=RIMS%20Ranchi&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, minHeight: '480px' }} 
-              allowFullScreen="" 
-              loading="lazy" 
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '500px' }}
+              allowFullScreen=""
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-          
         </div>
       </section>
     </div>
