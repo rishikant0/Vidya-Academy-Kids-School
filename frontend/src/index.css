@@ -2,8 +2,8 @@
 
 :root {
   /* Playful Kids Colors */
-  --sky-blue: #4FC3F7;
-  --deep-blue: #1565C0;
+  --sky-blue: #FF7043;
+  --deep-blue: #D84315;
   --sunny-yellow: #FFD54F;
   --bright-yellow: #FFC107;
   --soft-pink: #F48FB1;
@@ -15,7 +15,7 @@
   
   --bg-primary: #ffffff;
   --bg-soft: #FFF8E1;
-  --bg-blue-soft: #E3F2FD;
+  --bg-blue-soft: #FFCCBC;
   --bg-pink-soft: #FCE4EC;
   --bg-green-soft: #E8F5E9;
   
@@ -27,7 +27,7 @@
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
   --shadow-strong: 0 12px 40px rgba(0, 0, 0, 0.18);
-  --shadow-color: 0 8px 25px rgba(79, 195, 247, 0.3);
+  --shadow-color: 0 8px 25px rgba(255, 112, 67, 0.3);
   
   --radius-sm: 12px;
   --radius-md: 20px;

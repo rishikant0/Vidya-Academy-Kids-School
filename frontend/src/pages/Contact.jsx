@@ -35,12 +35,12 @@ const Contact = () => {
             </div>
 
             <div className="contact-card">
-              <div className="contact-icon" style={{background: 'linear-gradient(135deg, #4FC3F7, #1565C0)'}}>
+              <div className="contact-icon" style={{background: 'linear-gradient(135deg, #FF7043, #D84315)'}}>
                 <Phone size={24} color="white" />
               </div>
               <div>
                 <h4>Phone Number</h4>
-                <p>+91 6207383145</p>
+                <p><a href="tel:+916207383145" style={{color: 'inherit', textDecoration: 'none'}}>+91 6207383145</a></p>
               </div>
             </div>
 
@@ -50,7 +50,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4>Email</h4>
-                <p>kumarrishikant660@gmail.com</p>
+                <p><a href="mailto:kumarrishikant660@gmail.com" style={{color: 'inherit', textDecoration: 'none'}}>kumarrishikant660@gmail.com</a></p>
               </div>
             </div>
 

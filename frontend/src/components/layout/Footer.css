@@ -45,7 +45,7 @@
 .footer-logo-icon {
   width: 45px;
   height: 45px;
-  background: linear-gradient(135deg, #4fc3f7, #1976d2);
+  background: linear-gradient(135deg, #FF7043, #D84315);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -59,7 +59,7 @@
 }
 
 .footer-logo span {
-  color: #4fc3f7;
+  color: #FF7043;
   font-size: 0.75rem;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .social-links a:hover {
-  background: #4fc3f7;
+  background: #FF7043;
   color: white;
   transform: translateY(-5px) scale(1.1);
 }
@@ -103,7 +103,7 @@
   left: 0;
   width: 35px;
   height: 3px;
-  background: #4fc3f7;
+  background: #FF7043;
 }
 
 .footer-links ul,
@@ -123,7 +123,7 @@
 }
 
 .footer-links a:hover {
-  color: #4fc3f7;
+  color: #FF7043;
   transform: translateX(5px);
 }
 
@@ -136,7 +136,16 @@
 }
 
 .footer-contact svg {
-  color: #4fc3f7;
+  color: #FF7043;
+}
+.footer-contact a {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-contact a:hover {
+  color: #FF7043;
 }
 
 /* ================= BOTTOM ================= */

@@ -33,7 +33,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(21, 101, 192, 0.85) 0%, rgba(26, 26, 46, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(216, 67, 21, 0.85) 0%, rgba(26, 26, 46, 0.8) 100%);
   z-index: 1;
 }
 
@@ -203,7 +203,7 @@
 /* ======================== */
 /* BADGES                   */
 /* ======================== */
-.badge-blue { background: #e3f2fd; color: #1565C0; }
+.badge-blue { background: #FFCCBC; color: #D84315; }
 .badge-pink { background: #fce4ec; color: #E91E63; }
 .badge-yellow { background: #fff8e1; color: #FF8F00; }
 .badge-green { background: #e8f5e9; color: #43A047; }
@@ -230,7 +230,7 @@
 .feat-card:hover {
   transform: translateY(-12px);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
-  border-color: rgba(79, 195, 247, 0.2);
+  border-color: rgba(255, 112, 67, 0.2);
 }
 
 .feat-photo {
@@ -367,7 +367,7 @@
   flex-shrink: 0;
 }
 
-.ck.blue { background: #e3f2fd; color: #1565C0; }
+.ck.blue { background: #FFCCBC; color: #D84315; }
 .ck.pink { background: #fce4ec; color: #E91E63; }
 .ck.green { background: #e8f5e9; color: #43A047; }
 .ck.gold { background: #fff8e1; color: #FF8F00; }
@@ -615,7 +615,7 @@
 .cta-home-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(21, 101, 192, 0.9), rgba(13, 71, 161, 0.88));
+  background: linear-gradient(135deg, rgba(216, 67, 21, 0.9), rgba(191, 54, 12, 0.88));
 }
 
 .cta-home-inner {

@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { Send, CheckCircle, Loader2, GraduationCap, User, Users, Mail, Phone, BookOpen, Sparkles, Star } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import './Admission.css';
 
 const Admission = () => {
@@ -9,30 +8,45 @@ const Admission = () => {
   const [errorMsg, setErrorMsg] = useState('');
   const form = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setErrorMsg('');
+    setErrorMsg("");
 
-    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+    const formData = new FormData(form.current);
+    const data = {
+      student_name: formData.get("student_name"),
+      parent_name: formData.get("parent_name"),
+      parent_email: formData.get("parent_email"),
+      phone: formData.get("phone"),
+      class_selection: formData.get("class"),
+    };
 
-    if (serviceID === 'YOUR_SERVICE_ID' || !serviceID) {
-      setIsLoading(false);
-      setErrorMsg('Email service not configured. Please add EmailJS credentials.');
-      return;
-    }
+    try {
+      // Replace with your actual backend URL in production
+      const response = await fetch("http://localhost:5000/api/admission", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    emailjs.sendForm(serviceID, templateID, form.current, publicKey)
-      .then(() => {
+      const result = await response.json();
+
+      if (result.success) {
         setIsLoading(false);
         setSubmitted(true);
-      }, (error) => {
-        setIsLoading(false);
-        setErrorMsg('Failed to send. Please try again or contact us directly.');
-        console.log(error.text);
-      });
+      } else {
+        throw new Error(result.message || "Failed to send.");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      setErrorMsg(
+        "Failed to send. Please ensure the server is running or contact us directly."
+      );
+      console.error("Submission error:", error);
+    }
   };
 
   return (

@@ -83,7 +83,7 @@ const Footer = () => {
               <li>Nursery</li>
               <li>LKG</li>
               <li>UKG</li>
-              <li>Class 1</li>
+              
             </ul>
           </div>
 
@@ -92,8 +92,8 @@ const Footer = () => {
             <h4>Contact</h4>
             <ul>
               <li><MapPin size={16} /> Ranchi, Jharkhand</li>
-              <li><Phone size={16} /> +91 6207383145</li>
-              <li><Mail size={16} /> school@email.com</li>
+              <li><Phone size={16} /> <a href="tel:+919709539991">+91 97095 39991</a></li>
+              <li><Mail size={16} /> <a href="mailto:kumarrishikant660@gmail.com">kumarrishikant660@gmail.com</a></li>
             </ul>
           </div>
 
