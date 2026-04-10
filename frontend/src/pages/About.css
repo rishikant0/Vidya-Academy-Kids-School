@@ -1,43 +1,5 @@
-/* ======================== */
-/* PAGE HERO (Shared)       */
-/* ======================== */
-.page-hero {
-  position: relative;
-  min-height: 45vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
 .about-hero {
   background: linear-gradient(135deg, var(--deep-blue), #0d47a1);
-}
-
-.page-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.1);
-}
-
-.page-hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 100px 0 80px;
-}
-
-.page-hero-content h1 {
-  font-size: 3rem;
-  color: white;
-  margin: 12px 0 16px;
-}
-
-.page-hero-content p {
-  color: rgba(255,255,255,0.8);
-  font-size: 1.15rem;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 /* ======================== */
@@ -169,7 +131,7 @@
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-strong);
   overflow: hidden;
-  max-width: 900px;
+  max-width: 1150px;
   margin: 0 auto;
   transition: var(--bounce);
 }
@@ -208,14 +170,39 @@
   font-family: Georgia, serif;
 }
 
-.principal-quote {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: var(--text-dark);
-  font-style: italic;
-  margin-bottom: 24px;
+.principal-message-text {
   position: relative;
   z-index: 2;
+  margin-bottom: 30px;
+}
+
+.principal-message-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.parenting-tips {
+  margin: 15px 0 20px 20px;
+  list-style: none;
+}
+
+.parenting-tips li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-medium);
+}
+
+.parenting-tips li::before {
+  content: '♥';
+  position: absolute;
+  left: 0;
+  color: var(--hot-pink);
+  font-size: 0.8rem;
 }
 
 .principal-signature {

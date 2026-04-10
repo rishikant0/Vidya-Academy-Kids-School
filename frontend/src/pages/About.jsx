@@ -82,9 +82,25 @@ const About = () => {
             </div>
             <div className="principal-content">
               <div className="quote-mark">"</div>
-              <p className="principal-quote">
-                With over 12 years of experience in education, I am passionately dedicated to shaping young minds with care and excellence. We believe that every child has exceptional potential, and our goal is to ignite their love for learning from their very first day.
-              </p>
+              <div className="principal-message-text">
+                <p><strong>Respected Parents and My Dear Little Students,</strong></p>
+                
+                <p>I am <strong>Soni Singh</strong> and I have 16 years of teaching experience working with young children. During these years, I have learned that early childhood is the most important stage of learning and development. In a play school, children do not just learn letters and numbers; they learn how to speak, share, listen, and express their feelings. My aim as a teacher is to create a happy, safe, and caring environment where every child feels loved, confident, and excited to learn.</p>
+
+                <p>I strongly believe that every child is unique and special. With patience, love, and proper guidance, each child can grow into a confident and independent learner. Teaching small children requires understanding their emotions, encouraging their creativity, and helping them develop good habits from an early age.</p>
+
+                <p>I would also like to share a few simple parenting tips for parents of small children:</p>
+                <ul className="parenting-tips">
+                  <li>Create a daily routine for your child, including proper sleep, playtime, and learning time.</li>
+                  <li>Limit screen time and encourage more physical play and creative activities like drawing, storytelling, and puzzles.</li>
+                  <li>Talk and listen to your child every day—this helps build confidence and strong communication skills.</li>
+                  <li>Always encourage and appreciate your child’s small achievements, as positive words make a big difference in their growth.</li>
+                </ul>
+
+                <p>Together, parents and teachers can build a strong foundation for our children’s bright future.</p>
+                
+                <p>Thank you.</p>
+              </div>
               <div className="principal-signature">
                 <h4 className="principal-name">Soni Singh</h4>
                 <span className="principal-title-text">Principal, Vidya Academy Kids School</span>

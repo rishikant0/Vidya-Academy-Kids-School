@@ -30,7 +30,9 @@ const Contact = () => {
               </div>
               <div>
                 <h4>Our Location</h4>
-                <p>RIMS Bariyatu Road, Ranchi, Jharkhand</p>
+                <p>Vidyaa academy kids 
+ school 
+Near Akhada gym  karam chowk Vidyanagar, Ranchi, Jharkhand</p>
               </div>
             </div>
 
@@ -64,7 +66,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <a href="https://maps.google.com/?q=RIMS+Ranchi" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{marginTop: '12px', width: '100%'}}>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Vidyaa+academy+kids+school+Near+Akhada+gym+karam+chowk+Vidyanagar+Ranchi" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{marginTop: '12px', width: '100%'}}>
               Get Directions <ExternalLink size={16} />
             </a>
           </div>
@@ -72,10 +74,10 @@ const Contact = () => {
           <div className="map-container" data-aos="fade-left">
             <iframe
               title="School Location"
-              src="https://maps.google.com/maps?q=RIMS%20Ranchi&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Vidyaa%20academy%20kids%20school%20Near%20Akhada%20gym%20karam%20chowk%20Vidyanagar%20Ranchi&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
-              style={{ border: 0, minHeight: '500px' }}
+              style={{ border: 0, minHeight: '400px', borderRadius: '20px' }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

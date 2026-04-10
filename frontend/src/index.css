@@ -76,6 +76,44 @@ img {
 }
 
 /* ======================== */
+/* PAGE HERO (Shared)       */
+/* ======================== */
+.page-hero {
+  position: relative;
+  min-height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 100px 0 80px;
+}
+
+.page-hero-content h1 {
+  font-size: 3rem;
+  color: white;
+  margin: 12px 0 16px;
+}
+
+.page-hero-content p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.15rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* ======================== */
 /* ANIMATIONS               */
 /* ======================== */
 @keyframes fadeInUp {
@@ -168,7 +206,7 @@ img {
 
 .section-subtitle {
   font-size: 1.15rem;
-  max-width: 650px;
+  max-width: 850px;
   margin: 0 auto;
   color: var(--text-medium);
 }

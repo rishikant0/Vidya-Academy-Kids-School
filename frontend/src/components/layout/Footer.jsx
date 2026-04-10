@@ -91,7 +91,7 @@ const Footer = () => {
           <div className="footer-contact">
             <h4>Contact</h4>
             <ul>
-              <li><MapPin size={16} /> Ranchi, Jharkhand</li>
+              <li><MapPin size={16} /> Vidyanagar, Ranchi</li>
               <li><Phone size={16} /> <a href="tel:+919709539991">+91 97095 39991</a></li>
               <li><Mail size={16} /> <a href="mailto:kumarrishikant660@gmail.com">kumarrishikant660@gmail.com</a></li>
             </ul>
