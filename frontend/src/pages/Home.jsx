@@ -1,16 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Smile, Zap, Puzzle, Shield, ArrowRight, Sparkles, Star, Heart, ChevronLeft, ChevronRight, Quote, GraduationCap, Users, Trophy } from 'lucide-react';
+import { 
+  Shield, ArrowRight, Sparkles, Star, Heart, ChevronLeft, ChevronRight, 
+  GraduationCap, Users, BookOpen, Laptop, HeartHandshake, ShieldCheck, 
+  Palmtree, Music, Camera, Palette, Trophy
+} from 'lucide-react';
 import './Home.css';
+
+import heroBg from '../assets/gallery/hero_bg.jpg';
+import santaKids from '../assets/gallery/santa_kids.jpg';
+import clayActivity from '../assets/gallery/clay_activity.jpg';
+import outdoorPlay from '../assets/gallery/outdoor_play.jpg';
+import kidsSlide from '../assets/gallery/kids_slide.jpg';
+import gallery1 from '../assets/gallery1.png';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const galleryImages = [
-    { src: '/kids_hero.png', title: 'Happy Classroom' },
-    { src: '/kids_learning.png', title: 'Creative Learning' },
-    { src: '/kids_playing.png', title: 'Outdoor Fun' },
-    { src: '/kids_dance.png', title: 'Annual Day' },
-    { src: '/kids_classroom.png', title: 'Modern Classroom' },
+    { src: heroBg, title: 'Vidya Academy Kids School' },
+    { src: santaKids, title: 'Christmas Celebration' },
+    { src: clayActivity, title: 'Creative Clay Art' },
+    { src: outdoorPlay, title: 'Outdoor Fun & Games' },
+    { src: kidsSlide, title: 'Happy Moments' },
+    { src: gallery1, title: 'Our School Campus' },
+    { src: '/kids_hero.png', title: 'Modern Classroom' },
+    { src: '/kids_learning.png', title: 'Activity Based Learning' },
+    { src: '/kids_playing.png', title: 'Playground Fun' },
+    { src: '/kids_dance.png', title: 'Annual Day Function' },
+    { src: '/about_kids.png', title: 'Creative Corner' },
+    { src: '/hero_banner.png', title: 'School Entrance' },
   ];
 
   useEffect(() => {
@@ -20,10 +38,46 @@ const Home = () => {
     return () => clearInterval(timer);
   }, [galleryImages.length]);
 
-  const reviews = [
-    { name: "Priya Sharma", role: "Parent of Aarav (UKG)", text: "My child absolutely loves this school! The teachers are caring and the environment is wonderful.", avatar: "PS", color: "#F48FB1" },
-    { name: "Rahul Verma", role: "Parent of Diya (Nursery)", text: "The play-based approach is amazing. Diya looks forward to school every single day!", avatar: "RV", color: "#4FC3F7" },
-    { name: "Anita Singh", role: "Parent of Rohan (Class 1)", text: "Excellent facilities. I've seen visible growth in Rohan's confidence and speaking skills.", avatar: "AS", color: "#FFD54F" },
+  const whyTrustUs = [
+    {
+      title: "Smart Learning Environment",
+      desc: "Modern classrooms equipped with interactive tools to spark curiosity and digital literacy from an early age.",
+      icon: <Laptop size={32} />,
+      badge: "Modern",
+      color: "blue"
+    },
+    {
+      title: "Experienced & Caring Teachers",
+      desc: "Our educators are not just teachers but mentors who provide emotional support and personalized attention.",
+      icon: <HeartHandshake size={32} />,
+      badge: "Expert",
+      color: "pink"
+    },
+    {
+      title: "Safe & Secure Campus",
+      desc: "CCTV-monitored campus with rigorous safety protocols to ensure your child's well-being is never compromised.",
+      icon: <ShieldCheck size={32} />,
+      badge: "Secure",
+      color: "green"
+    },
+    {
+      title: "Activity-Based Curriculum",
+      desc: "A holistic blend of sports, arts, and academics designed to develop critical thinking and social skills.",
+      icon: <BookOpen size={32} />,
+      badge: "Holistic",
+      color: "gold"
+    }
+  ];
+
+  const activities = [
+    { img: santaKids, title: "Christmas Fun", tag: "Creative", size: "large" },
+    { img: clayActivity, title: "Clay Modeling", tag: "Art", size: "small" },
+    { img: outdoorPlay, title: "Outdoor Sports", tag: "Sports", size: "medium" },
+    { img: kidsSlide, title: "Play Time", tag: "Fun", size: "small" },
+    { img: '/kids_dance.png', title: "Annual Dance", tag: "Culture", size: "medium" },
+    { img: '/kids_learning.png', title: "Group Study", tag: "Social", size: "small" },
+    { img: '/kids_hero.png', title: "Music Class", tag: "Music", size: "large" },
+    { img: gallery1, title: "School Campus", tag: "Explore", size: "small" }
   ];
 
   return (
@@ -32,7 +86,7 @@ const Home = () => {
       {/* ========== HERO SECTION ========== */}
       <section className="hero">
         <div className="hero-bg">
-          <img src="/kids_hero.png" alt="Happy children learning" />
+          <img src={heroBg} alt="Vidya Academy Play School" />
           <div className="hero-overlay"></div>
         </div>
 
@@ -44,10 +98,10 @@ const Home = () => {
 
         {/* Floating kid photos */}
         <div className="hero-float-img float-img-1" data-aos="fade-up" data-aos-delay="500">
-          <img src="/kids_learning.png" alt="Kids learning" />
+          <img src={clayActivity} alt="Kids learning" />
         </div>
         <div className="hero-float-img float-img-2" data-aos="fade-up" data-aos-delay="700">
-          <img src="/kids_playing.png" alt="Kids playing" />
+          <img src={outdoorPlay} alt="Kids playing" />
         </div>
 
         <div className="container hero-inner">
@@ -64,15 +118,6 @@ const Home = () => {
             <Link to="/admission" className="btn btn-secondary">Admission Open <ArrowRight size={18} /></Link>
             <Link to="/contact" className="btn btn-outline">Contact Us</Link>
           </div>
-
-          {/* Stats */}
-          <div className="hero-stats-bar" data-aos="fade-up" data-aos-delay="400">
-            <div className="hstat"><GraduationCap size={20} /><div><strong>500+</strong><span>Happy Students</span></div></div>
-            <div className="hstat-line"></div>
-            <div className="hstat"><Users size={20} /><div><strong>50+</strong><span>Expert Teachers</span></div></div>
-            <div className="hstat-line"></div>
-            <div className="hstat"><Trophy size={20} /><div><strong>12+</strong><span>Years Excellence</span></div></div>
-          </div>
         </div>
 
         <div className="hero-wave">
@@ -82,57 +127,37 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========== FEATURES WITH IMAGES ========== */}
-      <section className="features-img section">
+      {/* ========== UPGRADED WHY CHOOSE US ========== */}
+      <section className="trust-section section">
         <div className="container">
           <div className="section-header" data-aos="fade-up">
-            <span className="section-badge badge-blue">Why Choose Us</span>
-            <h2 className="section-title">Why Parents Trust Us</h2>
-            <p className="section-subtitle">We create the perfect blend of education and fun for your child's holistic growth</p>
+            <span className="section-badge premium-badge">Why Parents Trust Us</span>
+            <h2 className="section-title">Nurturing Excellence Everyday</h2>
+            <p className="section-subtitle">We provide a premium educational foundation through modern methods and compassionate care.</p>
           </div>
 
-          <div className="feat-grid">
-            <div className="feat-card" data-aos="fade-up" data-aos-delay="100">
-              <div className="feat-photo">
-                <img src="/kids_learning.png" alt="Child Growth" />
-                <div className="feat-photo-badge badge-pink"><Heart size={16} /> Growth</div>
+          <div className="trust-grid">
+            {whyTrustUs.map((item, idx) => (
+              <div className={`trust-card card-${item.color}`} key={idx} data-aos="fade-up" data-aos-delay={idx * 100}>
+                <div className="trust-card-glass"></div>
+                <div className="trust-icon-box">
+                  {item.icon}
+                  <span className="trust-badge">{item.badge}</span>
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+                <div className="trust-card-glow"></div>
               </div>
-              <div className="feat-body">
-                <h3>Child Growth</h3>
-                <p>Nurturing cognitive, social, and emotional development in every child through personalized care and attention.</p>
-              </div>
-            </div>
-
-            <div className="feat-card" data-aos="fade-up" data-aos-delay="200">
-              <div className="feat-photo">
-                <img src="/kids_dance.png" alt="Activities" />
-                <div className="feat-photo-badge badge-yellow"><Sparkles size={16} /> Activities</div>
-              </div>
-              <div className="feat-body">
-                <h3>Activity-Based Learning</h3>
-                <p>Drawing, dancing, music, sports — education blended with play keeps children curious and excited.</p>
-              </div>
-            </div>
-
-            <div className="feat-card" data-aos="fade-up" data-aos-delay="300">
-              <div className="feat-photo">
-                <img src="/kids_classroom.png" alt="Safe Environment" />
-                <div className="feat-photo-badge badge-green"><Shield size={16} /> Safe</div>
-              </div>
-              <div className="feat-body">
-                <h3>Safe Environment</h3>
-                <p>CCTV-monitored campus with trained staff ensuring your child's safety is always our top priority.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ========== ABOUT PREVIEW ========== */}
-      <section className="about-home section" style={{background: '#f8f9ff'}}>
+      <section className="about-home section" style={{background: 'linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%)'}}>
         <div className="container about-home-grid">
           <div className="about-home-img" data-aos="fade-right">
-            <img src="/kids_learning.png" alt="Kids learning together" />
+            <img src={clayActivity} alt="Kids learning together" />
             <div className="about-float-badge animate-pulse">
               <Star size={18} fill="#FFD54F" color="#FFD54F" />
               <span>12+ Years</span>
@@ -153,38 +178,32 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========== ACTIVITIES IMAGE GRID ========== */}
-      <section className="act-grid-section section">
+      {/* ========== ENHANCED ACTIVITIES SECTION ========== */}
+      <section className="activities-modern section">
         <div className="container">
           <div className="section-header" data-aos="fade-up">
-            <span className="section-badge badge-green">Activities</span>
-            <h2 className="section-title">Exciting Activities</h2>
+            <span className="section-badge badge-green">Exciting Activities</span>
+            <h2 className="section-title">Where Every Day is an Adventure</h2>
             <p className="section-subtitle">Holistic development beyond the classroom through fun and engaging activities</p>
           </div>
 
-          <div className="act-photo-grid">
-            <div className="act-photo-item act-large" data-aos="fade-up">
-              <img src="/kids_dance.png" alt="Annual Day" />
-              <div className="act-photo-overlay"><h4>🎭 Annual Day</h4></div>
-            </div>
-            <div className="act-photo-item" data-aos="fade-up" data-aos-delay="100">
-              <img src="/kids_learning.png" alt="Drawing & Art" />
-              <div className="act-photo-overlay"><h4>🎨 Drawing & Art</h4></div>
-            </div>
-            <div className="act-photo-item" data-aos="fade-up" data-aos-delay="200">
-              <img src="/kids_playing.png" alt="Games & Play" />
-              <div className="act-photo-overlay"><h4>⚽ Games & Play</h4></div>
-            </div>
-            <div className="act-photo-item" data-aos="fade-up" data-aos-delay="300">
-              <img src="/kids_hero.png" alt="Music & Dance" />
-              <div className="act-photo-overlay"><h4>💃 Music & Dance</h4></div>
-            </div>
+          <div className="activity-masonry">
+            {activities.map((act, idx) => (
+              <div className={`activity-item ${act.size}`} key={idx} data-aos="zoom-in" data-aos-delay={idx * 50}>
+                <img src={act.img} alt={act.title} />
+                <div className="activity-overlay">
+                  <span className="act-tag">{act.tag}</span>
+                  <h4>{act.title}</h4>
+                  <div className="act-zoom-icon"><Sparkles size={24} /></div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ========== GALLERY SLIDER ========== */}
-      <section className="gallery-home section" style={{background: '#f0f4ff'}}>
+      <section className="gallery-home section" style={{background: 'linear-gradient(to bottom, #f0f4ff, #ffffff)'}}>
         <div className="container">
           <div className="section-header" data-aos="fade-up">
             <span className="section-badge badge-purple">Gallery</span>
@@ -212,40 +231,10 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ========== TESTIMONIALS ========== */}
-      <section className="test-section section">
-        <div className="container">
-          <div className="section-header" data-aos="fade-up">
-            <span className="section-badge badge-pink">Testimonials</span>
-            <h2 className="section-title">What Parents Say</h2>
-            <p className="section-subtitle">Real stories from happy Vidya Academy families</p>
-          </div>
-
-          <div className="test-grid">
-            {reviews.map((r, idx) => (
-              <div className="test-card" key={idx} data-aos="fade-up" data-aos-delay={idx * 120} style={{borderTop: `4px solid ${r.color}`}}>
-                <div className="test-quote"><Quote size={30} /></div>
-                <div className="test-stars">
-                  {[1,2,3,4,5].map(i => <Star key={i} size={16} fill="#FFD54F" color="#FFD54F" />)}
-                </div>
-                <p className="test-text">"{r.text}"</p>
-                <div className="test-author">
-                  <div className="test-avatar" style={{background: `linear-gradient(135deg, ${r.color}, ${r.color}dd)`}}>{r.avatar}</div>
-                  <div>
-                    <h4>{r.name}</h4>
-                    <span>{r.role}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ========== CTA SECTION ========== */}
       <section className="cta-home">
         <div className="cta-home-bg">
-          <img src="/kids_playing.png" alt="Happy kids" />
+          <img src={outdoorPlay} alt="Happy kids" />
           <div className="cta-home-overlay"></div>
         </div>
         <div className="container cta-home-inner" data-aos="zoom-in">

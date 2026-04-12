@@ -2,10 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Camera, ChevronLeft, ChevronRight } from 'lucide-react';
 import './Gallery.css';
 
+import heroBg from '../assets/gallery/hero_bg.jpg';
+import santaKids from '../assets/gallery/santa_kids.jpg';
+import clayActivity from '../assets/gallery/clay_activity.jpg';
+import outdoorPlay from '../assets/gallery/outdoor_play.jpg';
+import kidsSlide from '../assets/gallery/kids_slide.jpg';
+import gallery1 from '../assets/gallery1.png';
+
 const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const galleryItems = [
+    { title: 'Vidya Academy Play School', img: heroBg },
+    { title: 'Christmas Celebration', img: santaKids },
+    { title: 'Clay Modeling Activity', img: clayActivity },
+    { title: 'Outdoor Play Time', img: outdoorPlay },
+    { title: 'Fun on the Slide', img: kidsSlide },
+    { title: 'School Building', img: gallery1 },
     { title: 'Happy Classroom', img: '/kids_hero.png' },
     { title: 'Creative Learning', img: '/kids_learning.png' },
     { title: 'Outdoor Fun', img: '/kids_playing.png' },
