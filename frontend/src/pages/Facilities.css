@@ -1,63 +1,19 @@
-/* Facilities Page Hero */
-.facilities-hero {
-  background: linear-gradient(135deg, #43A047, #1B5E20);
+.facilities-page {
+  animation: fadeIn 0.8s ease-out;
 }
 
-/* Facilities Grid */
-.facilities-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+.facilities-grid-section {
+  padding: 80px 0;
 }
 
-.facility-card {
-  background: white;
-  padding: 40px 28px;
-  border-radius: var(--radius-lg);
-  text-align: center;
-  box-shadow: var(--shadow-soft);
-  transition: var(--bounce);
-  border: 2px solid transparent;
-}
-
-.facility-card:hover {
-  transform: translateY(-12px);
-  box-shadow: var(--shadow-strong);
-  border-color: rgba(79, 195, 247, 0.15);
-}
-
-.facility-icon-wrap {
-  width: 72px;
-  height: 72px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  color: white;
-  transition: var(--bounce);
-}
-
-.facility-card:hover .facility-icon-wrap {
-  transform: scale(1.1) rotate(-5deg);
-}
-
-.facility-card h3 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: var(--text-dark);
-}
-
-.facility-card p {
-  font-size: 0.95rem;
-  color: var(--text-medium);
-}
-
-@media (max-width: 992px) {
-  .facilities-grid { grid-template-columns: repeat(2, 1fr); }
+/* Reusing grid styles from Home/About but ensuring specific tweaks for facilities if needed */
+.facilities-page .trust-premium-grid {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
 }
 
 @media (max-width: 768px) {
-  .facilities-grid { grid-template-columns: 1fr; }
+  .facilities-page .trust-premium-grid {
+    grid-template-columns: 1fr;
+  }
 }

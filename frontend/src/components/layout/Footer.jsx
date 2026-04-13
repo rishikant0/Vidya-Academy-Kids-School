@@ -8,7 +8,6 @@ import {
   GraduationCap,
 } from "lucide-react";
 
-// ✅ Social icons (FIXED)
 import {
   FaFacebookF,
   FaInstagram,
@@ -21,28 +20,33 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer-wrapper">
-
-      {/* 🔥 Wave Divider */}
+      
+      {/* Wave */}
       <div className="footer-wave">
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
           <path
-            d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z"
-            fill="#1a1a2e"
+            d="M0,60 C480,140 960,20 1440,60 L1440,120 L0,120 Z"
+            fill="url(#gradient)"
           />
+          <defs>
+            <linearGradient id="gradient">
+              <stop offset="0%" stopColor="#6ea8ff" />
+              <stop offset="100%" stopColor="#ff6ec7" />
+            </linearGradient>
+          </defs>
         </svg>
       </div>
 
-      {/* 🔷 MAIN FOOTER */}
+      {/* Main */}
       <div className="footer-main">
         <div className="container footer-grid">
 
-          {/* 🔶 BRAND */}
+          {/* Brand */}
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="footer-logo-icon">
-                <GraduationCap size={24} />
+                <GraduationCap size={30} />
               </div>
-
               <div>
                 <h3>Vidya Academy</h3>
                 <span>Kids School</span>
@@ -50,11 +54,11 @@ const Footer = () => {
             </div>
 
             <p>
-              A joyful place for learning, growth, and creativity. Nurturing young
-              minds with love and care.
+              Where little dreams take flight ✨. We provide a joyful,
+              colorful and safe environment for kids to learn and grow.
             </p>
 
-            {/* 🔥 SOCIAL ICONS */}
+            {/* Social */}
             <div className="social-links">
               <a href="#"><FaFacebookF /></a>
               <a href="#"><FaInstagram /></a>
@@ -63,7 +67,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* 🔶 QUICK LINKS */}
+          {/* Links */}
           <div className="footer-links">
             <h4>Quick Links</h4>
             <ul>
@@ -75,42 +79,40 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 🔶 PROGRAMS */}
+          {/* Classes */}
           <div className="footer-links">
-            <h4>Programs</h4>
+            <h4>Our Classes</h4>
             <ul>
               <li>Pre Nursery</li>
               <li>Nursery</li>
               <li>LKG</li>
               <li>UKG</li>
-              
+              <li>Class 1</li>
             </ul>
           </div>
 
-          {/* 🔶 CONTACT */}
+          {/* Contact */}
           <div className="footer-contact">
-            <h4>Contact</h4>
+            <h4>Contact Info</h4>
             <ul>
-              <li><MapPin size={16} /> Vidyanagar, Ranchi</li>
-              <li><Phone size={16} /> <a href="tel:+919709539991">+91 97095 39991</a></li>
-              <li><Mail size={16} /> <a href="mailto:kumarrishikant660@gmail.com">kumarrishikant660@gmail.com</a></li>
+              <li><MapPin size={18} /> Ranchi, Jharkhand</li>
+              <li><Phone size={18} /> <a href="tel:+916207383145">+91 62073 83145</a></li>
+              <li><Mail size={18} /> <a href="mailto:info@vidyaacademy.com">info@vidyaacademy.com</a></li>
             </ul>
           </div>
 
         </div>
       </div>
 
-      {/* 🔷 BOTTOM */}
+      {/* Bottom */}
       <div className="footer-bottom">
-        <p>
-          © {new Date().getFullYear()} Vidya Academy Kids School
-        </p>
-
-        <p className="made-with">
-          Made with <Heart size={14} color="#ff4081" fill="#ff4081" />
-        </p>
+        <div className="container bottom-content">
+          <p>© {new Date().getFullYear()} Vidya Academy. All Rights Reserved.</p>
+          <p className="made-with">
+            Made with <Heart size={16} fill="#ff6ec7" color="#ff6ec7" /> for Kids
+          </p>
+        </div>
       </div>
-
     </footer>
   );
 };
