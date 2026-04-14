@@ -1,151 +1,82 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Heart,
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  Smile
-} from "lucide-react";
-
-import admissionImg from "../../assets/gallery/kids_slide.jpg";
+import { Sparkles, ArrowRight } from "lucide-react";
 
 const AdmissionPreview = () => {
-
-  // ✅ AUTO SESSION YEAR (APRIL BASED - INDIA)
   const getSessionYear = () => {
     const now = new Date();
     const year = now.getFullYear();
-    const month = now.getMonth(); // 0 = Jan
-
-    const startYear = month >= 3 ? year : year - 1; // April start
+    const month = now.getMonth();
+    const startYear = month >= 3 ? year : year - 1;
     const nextYear = (startYear + 1).toString().slice(-2);
-
     return `${startYear}-${nextYear}`;
   };
 
   return (
-    <section className="admission-v3">
+    <section className="admission-preview-v4">
+      {/* Soft Background Decor */}
+      <div className="v4-bg-decor">
+        <div className="v4-blob-pink"></div>
+        <div className="v4-blob-blue"></div>
+        <div className="v4-blob-purple"></div>
+      </div>
 
-      {/* 🌈 BACKGROUND DECOR */}
-      <div className="v3-canvas">
-        <div className="v3-blob pink"></div>
-        <div className="v3-blob purple"></div>
-        <div className="v3-blob blue"></div>
-        <div className="v3-blob yellow"></div>
-        <div className="v3-blob indigo"></div>
-        
-        {/* Abstract Floating Shapes (Geometric) */}
-        <div className="v3-shape s1"></div>
-        <div className="v3-shape s2"></div>
-        <div className="v3-shape s3"></div>
-        <div className="v3-shape s4"></div>
-
-        {/* Floating Elements (Emojis) */}
-        <motion.div
-          animate={{ y: [0, -30, 0] }}
+      {/* Decorative Floating Elements */}
+      <div className="v4-floating-elements">
+        <motion.span 
+          animate={{ y: [0, -20, 0] }} 
           transition={{ duration: 4, repeat: Infinity }}
-          className="v3-float f1"
+          className="v4-float-item f-balloon"
         >
           🎈
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 40, 0] }}
-          transition={{ duration: 6, repeat: Infinity }}
-          className="v3-float f2"
-        >
-          🧸
-        </motion.div>
-
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="v3-float f3"
+        </motion.span>
+        <motion.span 
+          animate={{ rotate: 360 }} 
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="v4-float-item f-star"
         >
           ⭐
-        </motion.div>
+        </motion.span>
       </div>
 
       <div className="container">
-        <div className="v3-grid">
-
-          {/* LEFT CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="v3-content"
-          >
-
-            {/* ✅ AUTO YEAR HERE */}
-            <div className="v3-badge-vibrant">
-              <span className="pulse-dot"></span>
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="v4-card-wrapper glass"
+        >
+          <div className="v4-card-content">
+            <motion.div 
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="v4-badge"
+            >
               ✨ Admissions Open {getSessionYear()}
-            </div>
+            </motion.div>
 
-            <h2 className="v3-title-ultra">
-              Start Your Child's <br />
-              <span className="text-glow-highlight">
-                Magical Journey
-              </span>
+            <h2 className="v4-title">
+              Start Your Child’s <br />
+              <span className="v4-gradient-text">Magical Journey</span>
             </h2>
 
-            <p className="v3-desc">
-              Join a community where learning is an adventure! We create a nurturing
-              space for children to explore their world through play, creativity,
-              and expert guidance.
+            <p className="v4-description">
+              Join Ranchi's most loved pre-school! Where curiosity meets creativity 
+              in a safe, fun, and nurturing environment.
             </p>
 
-            <div className="v3-points">
-              <div className="v3-chip">
-                <Heart size={18} fill="white" /> Holistic Growth
-              </div>
-              <div className="v3-chip">
-                <ShieldCheck size={18} fill="white" /> Expert Mentors
-              </div>
-              <div className="v3-chip">
-                <Smile size={18} fill="white" /> Fun Learning
-              </div>
-            </div>
-
-            <div className="v3-actions">
-              <Link to="/admission" className="btn-v3-primary">
-                Register Now <ArrowRight size={20} />
+            <div className="v4-actions">
+              <Link to="/admission" className="btn btn-primary v4-btn-full">
+                Apply Now <ArrowRight size={20} />
               </Link>
-
-              <Link to="/contact" className="btn-v3-glass">
+              <Link to="/contact" className="v4-link-visit">
                 Visit Campus
               </Link>
             </div>
-          </motion.div>
-
-          {/* RIGHT IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="v3-image-area"
-          >
-            <div className="v3-image-frame">
-              <img src={admissionImg} alt="Happy Kids" className="v3-img" />
-              <div className="v3-img-overlay"></div>
-
-              <motion.div
-                animate={{ y: [-15, 15, -15] }}
-                transition={{ duration: 5, repeat: Infinity }}
-                className="v3-mini-card"
-              >
-                <div className="icon-circle">
-                  <Sparkles size={20} />
-                </div>
-                <span>Play & Learn</span>
-              </motion.div>
-            </div>
-          </motion.div>
-
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

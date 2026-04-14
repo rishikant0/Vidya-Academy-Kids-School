@@ -1,15 +1,6 @@
-import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectCards } from 'swiper/modules';
-import { Camera } from 'lucide-react';
-
-// Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-cards';
-
+import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Camera, LayoutGrid, Sparkles, X, Maximize2, Filter, Image as ImageIcon } from 'lucide-react';
 import './Gallery.css';
 
 // Import local images
@@ -33,107 +24,164 @@ import p14 from '../assets/gallery/p14.jpeg';
 import p15 from '../assets/gallery/p15.jpeg';
 
 const Gallery = () => {
+  const [filter, setFilter] = useState('All');
+  const [selectedImg, setSelectedImg] = useState(null);
+
+  const categories = ['All', 'School', 'Classroom', 'Activity', 'Events'];
+
   const allPhotos = useMemo(() => [
-    { title: 'Campus View', img: heroBg, tag: 'School' },
-    { title: 'Christmas Fun', img: santaKids, tag: 'Events' },
-    { title: 'Clay Modeling', img: clayActivity, tag: 'Activity' },
-    { title: 'Outdoor Sports', img: outdoorPlay, tag: 'Activity' },
-    { title: 'Playground Fun', img: kidsSlide, tag: 'Activity' },
-    { title: 'Front Office', img: gallery1, tag: 'School' },
-    { title: 'Smart Learning', img: p4, tag: 'Classroom' },
-    { title: 'Caring Staff', img: p5, tag: 'Classroom' },
-    { title: 'Art & Craft', img: p6, tag: 'Activity' },
-    { title: 'Happy Kids', img: p7, tag: 'Moments' },
-    { title: 'Group Study', img: p8, tag: 'Classroom' },
-    { title: 'Physical Activity', img: p9, tag: 'Activity' },
-    { title: 'Learning Joy', img: p10, tag: 'Classroom' },
-    { title: 'Garden Play', img: p11, tag: 'Activity' },
-    { title: 'Annual Day', img: p12, tag: 'Events' },
-    { title: 'School Building', img: p14, tag: 'School' },
-    { title: 'Assembly Hall', img: p15, tag: 'School' },
+    { id: 1, title: 'Campus View', img: heroBg, tag: 'School', size: 'large' },
+    { id: 2, title: 'Christmas Fun', img: santaKids, tag: 'Events', size: 'medium' },
+    { id: 3, title: 'Clay Modeling', img: clayActivity, tag: 'Activity', size: 'small' },
+    { id: 4, title: 'Outdoor Sports', img: outdoorPlay, tag: 'Activity', size: 'medium' },
+    { id: 5, title: 'Playground Fun', img: kidsSlide, tag: 'Activity', size: 'small' },
+    { id: 6, title: 'Front Office', img: gallery1, tag: 'School', size: 'medium' },
+    { id: 7, title: 'Smart Learning', img: p4, tag: 'Classroom', size: 'large' },
+    { id: 8, title: 'Caring Staff', img: p5, tag: 'Classroom', size: 'small' },
+    { id: 9, title: 'Art & Craft', img: p6, tag: 'Activity', size: 'medium' },
+    { id: 10, title: 'Happy Kids', img: p7, tag: 'Events', size: 'small' },
+    { id: 11, title: 'Group Study', img: p8, tag: 'Classroom', size: 'medium' },
+    { id: 12, title: 'Physical Activity', img: p9, tag: 'Activity', size: 'large' },
+    { id: 13, title: 'Learning Joy', img: p10, tag: 'Classroom', size: 'small' },
+    { id: 14, title: 'Garden Play', img: p11, tag: 'Activity', size: 'medium' },
+    { id: 15, title: 'Annual Day', img: p12, tag: 'Events', size: 'medium' },
+    { id: 16, title: 'School Building', img: p14, tag: 'School', size: 'large' },
+    { id: 17, title: 'Assembly Hall', img: p15, tag: 'School', size: 'medium' },
   ], []);
 
+  const filteredPhotos = useMemo(() => {
+    return filter === 'All' ? allPhotos : allPhotos.filter(photo => photo.tag === filter);
+  }, [filter, allPhotos]);
+
   return (
-    <div className="gallery-page">
-      {/* Header */}
-      <section className="page-hero">
-        <div className="hero-gradient-overlay"></div>
-        <div className="container">
+    <div className="gallery-page-v2">
+      {/* Lightbox */}
+      <AnimatePresence>
+        {selectedImg && (
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="page-hero-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="lightbox-overlay"
+            onClick={() => setSelectedImg(null)}
           >
-            <span className="section-badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>Memories</span>
-            <h1>Our Vibrant Gallery</h1>
-            <p>Every picture tells a story of discovery, laughter, and learning at Vidya Academy.</p>
+            <motion.div 
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              className="lightbox-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="close-lightbox" onClick={() => setSelectedImg(null)}><X size={30} /></button>
+              <img src={selectedImg.img} alt={selectedImg.title} />
+              <div className="lightbox-caption">
+                <h3>{selectedImg.title}</h3>
+                <span className="badge">{selectedImg.tag}</span>
+              </div>
+            </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Premium Hero Section - Compact */}
+      <section className="gallery-hero-v3">
+        <div className="v3-bg-canvas">
+          <div className="v3-mesh"></div>
+          <div className="v3-blob blob-p"></div>
+          <div className="v3-blob blob-b"></div>
         </div>
-        <div className="wave-divider">
-          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,80 C480,140 960,20 1440,80 L1440,120 L0,120 Z" fill="white"/>
+
+        {/* Floating Playful Elements */}
+        <div className="v3-floating-decor">
+          <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="v3-item">🎈</motion.div>
+          <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 5, repeat: Infinity }} className="v3-item">⭐</motion.div>
+          <motion.div animate={{ y: [0, 15, 0] }} transition={{ duration: 6, repeat: Infinity }} className="v3-item">🧸</motion.div>
+        </div>
+
+        <div className="container">
+          <div className="hero-flex-v3">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="hero-left-v3"
+            >
+              <h1 className="v3-title">School <span className="v3-gradient-text">Gallery</span></h1>
+              <p className="v3-subtitle">Capturing the joy and discovery in every corner of our school.</p>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="hero-right-v3"
+            >
+              <div className="camera-badge-v3">
+                <Camera size={40} strokeWidth={1.5} />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="v3-wave-divider">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path d="M0,60 C480,110 960,10 1440,60 L1440,100 L0,100 Z" fill="var(--bg-soft)"/>
           </svg>
         </div>
       </section>
 
-      {/* Featured Slider */}
-      <section className="gallery-featured section bg-soft">
+      {/* Main Content */}
+      <section className="gallery-main-v3">
         <div className="container">
-          <div className="section-header">
-            <span className="section-badge">Featured</span>
-            <h2 className="section-title">Moments We Cherish</h2>
+          
+          {/* Filter Pills */}
+          <div className="v3-filters">
+            {categories.map((cat) => (
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                key={cat} 
+                className={`v3-filter-pill ${filter === cat ? 'active' : ''}`}
+                onClick={() => setFilter(cat)}
+              >
+                {cat}
+              </motion.button>
+            ))}
           </div>
 
-          <div className="featured-card-wrapper">
-             <Swiper
-                effect={'cards'}
-                grabCursor={true}
-                modules={[EffectCards, Autoplay, Navigation]}
-                autoplay={{ delay: 3000 }}
-                navigation={true}
-                className="featured-swiper"
-              >
-                {allPhotos.slice(0, 6).map((item, idx) => (
-                  <SwiperSlide key={idx}>
-                    <div className="featured-slide-content">
-                      <img src={item.img} alt={item.title} />
-                      <div className="slide-overlay">
-                        <h3>{item.title}</h3>
+          {/* Optimized Masonry Grid */}
+          <motion.div layout className="v3-masonry">
+            <AnimatePresence mode="popLayout">
+              {filteredPhotos.map((photo) => (
+                <motion.div 
+                  layout
+                  key={photo.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  viewport={{ once: true }}
+                  className={`v3-gallery-card ${photo.size}`}
+                  onClick={() => setSelectedImg(photo)}
+                >
+                  <div className="v3-card-inner glass">
+                    <img src={photo.img} alt={photo.title} loading="lazy" />
+                    <div className="v3-overlay">
+                      <div className="v3-overlay-content">
+                        <span className="v3-tag">{photo.tag}</span>
+                        <h3>{photo.title}</h3>
                       </div>
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-          </div>
-        </div>
-      </section>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
 
-      {/* Full Grid */}
-      <section className="gallery-grid-section section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-badge">Life @ Vidya</span>
-            <h2 className="section-title">Capture The Joy</h2>
+          {/* Floating Shapes behind grid for depth */}
+          <div className="grid-bg-shapes">
+            <div className="shape shape-1"></div>
+            <div className="shape shape-2"></div>
+            <div className="shape shape-3"></div>
           </div>
 
-          <div className="masonry-grid">
-            {allPhotos.map((item, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (index % 5) * 0.1 }}
-                className="activity-card"
-              >
-                <img src={item.img} alt={item.title} />
-                <div className="activity-overlay">
-                  <span className="activity-tag">{item.tag}</span>
-                  <h4>{item.title}</h4>
-                </div>
-              </motion.div>
-            ))}
+          <div className="v3-footer">
+             <button className="btn btn-premium-v2">View More Memories <Sparkles size={18} /></button>
           </div>
         </div>
       </section>

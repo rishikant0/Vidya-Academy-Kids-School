@@ -56,15 +56,63 @@ app.post('/api/admission', async (req, res) => {
   };
 
   try {
-    // Send to school
     await transporter.sendMail(mailOptionsToSchool);
-    // Send to parent
     await transporter.sendMail(mailOptionsToParent);
-
-    res.status(200).json({ success: true, message: 'Application submitted and emails sent successfully!' });
+    res.status(200).json({ success: true, message: 'Application submitted!' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ success: false, message: 'Failed to send emails. Error: ' + error.message });
+    console.error('Error:', error);
+    res.status(500).json({ success: false, message: 'Failed to send.' });
+  }
+});
+
+app.post('/api/contact', async (req, res) => {
+  const { name, email, phone, message } = req.body;
+
+  const mailOptionsToSchool = {
+    from: process.env.EMAIL_USER,
+    to: process.env.SCHOOL_EMAIL || 'kumarrishikant660@gmail.com',
+    replyTo: email,
+    subject: `New Contact Message: ${name}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+        <h2 style="color: #ff6ec7; text-align: center;">New Contact Request</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong></p>
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #ff6ec7;">
+          ${message}
+        </div>
+        <div style="margin-top: 20px; font-size: 0.8em; color: #888; text-align: center;">
+          Sent from Vidya Academy Contact Form
+        </div>
+      </div>
+    `,
+  };
+
+  const mailOptionsToUser = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: `We've Received Your Message - Vidya Academy`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+        <h2 style="color: #4a90ff; text-align: center;">Hello from Vidya Academy!</h2>
+        <p>Dear ${name},</p>
+        <p>Thank you for reaching out to us. We have received your message and will get back to you as soon as possible.</p>
+        <p>If you have any urgent queries, feel free to call us at +91 6207383145.</p>
+        <br>
+        <p>Best Regards,<br><strong>Vidya Academy Team</strong></p>
+      </div>
+    `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptionsToSchool);
+    await transporter.sendMail(mailOptionsToUser);
+    res.status(200).json({ success: true, message: 'Message sent successfully!' });
+  } catch (error) {
+    console.error('Error sending contact email:', error);
+    res.status(500).json({ success: false, message: 'Failed to send message.' });
   }
 });
 

@@ -9,44 +9,52 @@
   --p-purple: #a78bfa;
   --p-purple-alt: #8b5cf6;
   --p-green: #4ade80;
+  --p-orange: #fb923c;
   
-  /* Gradients */
-  --grad-pink: linear-gradient(135deg, #ff6ec7 0%, #ff4db1 100%);
-  --grad-blue: linear-gradient(135deg, #6ea8ff 0%, #4a90ff 100%);
-  --grad-yellow: linear-gradient(135deg, #ffd86e 0%, #fbc02d 100%);
-  --grad-purple: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
-  --grad-navbar: linear-gradient(90deg, rgba(110, 168, 255, 0.1) 0%, rgba(255, 110, 199, 0.1) 50%, rgba(255, 216, 110, 0.1) 100%);
-  --grad-text: linear-gradient(135deg, #4a90ff 0%, #ff6ec7 100%);
-  --grad-mixed: linear-gradient(135deg, #a78bfa 0%, #ff6ec7 50%, #ffd86e 100%);
+  /* Shanti Juniors Inspired Palette */
+  --p-deep-blue: #1e3a8a;
+  --p-sky-blue: #0ea5e9;
+  --p-purple-deep: #6d28d9;
+  --p-pink-vibrant: #ec4899;
+  --p-yellow-bright: #fbbf24;
+  
+  /* Advanced Gradients */
+  --grad-shanti: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 50%, #6d28d9 100%);
+  --grad-glow: radial-gradient(circle at 50% 50%, rgba(255, 110, 199, 0.2), transparent 70%);
+  --grad-btn-vibrant: linear-gradient(90deg, #ec4899, #8b5cf6);
+  --grad-text-vibrant: linear-gradient(135deg, #fbbf24, #ec4899, #a78bfa);
 
-  
   /* Backgrounds */
   --bg-primary: #ffffff;
   --bg-soft: #fbfdff;
+  --bg-vibrant: linear-gradient(180deg, #f0f7ff 0%, #fff1f2 50%, #f5f3ff 100%);
+  --bg-hero: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 50%, #6d28d9 100%);
   
   /* Text */
-  --text-dark: #1e293b;
-  --text-medium: #475569;
-  --text-light: #94a3b8;
+  --text-dark: #0f172a;
+  --text-medium: #334155;
+  --text-light: #64748b;
   --text-white: #ffffff;
   
   /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   
   /* Shadows */
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 20px rgba(110, 168, 255, 0.3);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+  --shadow-glow-pink: 0 10px 30px rgba(255, 110, 199, 0.3);
+  --shadow-glow-blue: 0 10px 30px rgba(110, 168, 255, 0.3);
   
   --radius-sm: 12px;
   --radius-md: 20px;
   --radius-lg: 35px;
+  --radius-xl: 50px;
   --radius-full: 9999px;
   
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -134,6 +142,11 @@ h1, h2, h3, h4, h5, h6 {
   .section { padding: 80px 0; }
 }
 
+@media (max-width: 480px) {
+  .section-title { font-size: 2.1rem; }
+  .container { padding: 0 1rem; }
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -196,9 +209,36 @@ h1, h2, h3, h4, h5, h6 {
   animation: float 6s ease-in-out infinite;
 }
 
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-30px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(15px, -15px); }
+  66% { transform: translate(-10px, 10px); }
+}
+
+.animate-drift {
+  animation: drift 10s ease-in-out infinite;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 4s ease-in-out infinite;
 }
 
 /* Wave Divider */

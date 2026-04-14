@@ -55,60 +55,6 @@ const GallerySection = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        .gallery-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 25px;
-        }
-        .gallery-item-card {
-          border-radius: 40px;
-          overflow: hidden;
-          padding: 10px;
-          transition: var(--transition);
-        }
-        .gallery-img-wrap {
-          position: relative;
-          width: 100%;
-          height: 350px;
-          border-radius: 30px;
-          overflow: hidden;
-        }
-        .gallery-img-wrap img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.8s ease;
-        }
-        .gallery-hover-overlay {
-          position: absolute;
-          inset: 0;
-          background: rgba(110, 168, 255, 0.7);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          opacity: 0;
-          transition: all 0.4s ease;
-          color: white;
-          text-align: center;
-          padding: 20px;
-        }
-        .gallery-item-card:hover .gallery-hover-overlay {
-          opacity: 1;
-        }
-        .gallery-item-card:hover img {
-          transform: scale(1.1);
-        }
-        .overlay-icon {
-          margin-bottom: 10px;
-          transform: translateY(20px);
-          transition: all 0.4s ease;
-        }
-        .gallery-item-card:hover .overlay-icon {
-          transform: translateY(0);
-        }
-      `}</style>
     </section>
   );
 };

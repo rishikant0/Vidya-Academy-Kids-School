@@ -76,7 +76,7 @@ const Programmes = () => {
           >
             Learning Path
           </motion.span>
-          <h2 className="section-title gold-gradient-text">Our Programmes</h2>
+          <h2 className="section-title">Our Programmes</h2>
           <p className="section-subtitle">A vibrant journey of discovery and growth for every stage.</p>
         </div>
 
