@@ -1,19 +1,178 @@
-.facilities-page {
-  animation: fadeIn 0.8s ease-out;
+/* ==========================================================
+   🎡 FACILITIES PAGE V8 - THE MAGIC PLAYLAND
+========================================================== */
+
+.facilities-v8 {
+  background: #ffffff;
+  overflow-x: hidden;
 }
 
-.facilities-grid-section {
-  padding: 80px 0;
+/* 🚀 HERO SECTION */
+.fac-hero {
+  background: linear-gradient(135deg, #fff7ed 0%, #fff1f2 100%); /* Brighter Warm Gradient */
+  padding: 100px 0 140px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
 }
 
-/* Reusing grid styles from Home/About but ensuring specific tweaks for facilities if needed */
-.facilities-page .trust-premium-grid {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+.fac-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 110, 199, 0.1), transparent);
+  pointer-events: none;
 }
 
+.fac-hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.fac-shape {
+  position: absolute;
+  opacity: 0.2;
+}
+
+.fac-shape.star { top: 15%; left: 10%; }
+.fac-shape.heart { bottom: 20%; right: 10%; }
+.fac-shape.cloud { top: 20%; right: 15%; opacity: 0.1; }
+.fac-shape.balloon { top: 30%; left: 5%; font-size: 3rem; }
+.fac-shape.star-mini { bottom: 30%; left: 15%; }
+
+.vibrant-theme .fac-grid-wrap {
+  background: #fffef5; /* Bright Cream/Yellow tint */
+}
+
+.fac-badge {
+  display: inline-block;
+  padding: 10px 25px;
+  background: white;
+  color: var(--p-pink-alt);
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.fac-hero h1 {
+  font-size: 4.5rem;
+  margin-bottom: 20px;
+}
+
+.fac-desc {
+  font-size: 1.4rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.fac-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+}
+
+/* 🎢 GRID SECTION */
+.fac-grid-wrap {
+  padding: 60px 0 100px; /* Reduced from 100px/140px */
+  background: #ffffff;
+}
+
+.fac-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+}
+
+/* 🃏 THE MAGIC CARD - UNIVERSAL HOVER SYSTEM */
+.fac-card {
+  padding: 60px 40px;
+  border-radius: 40px;
+  background: var(--bg-soft);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fac-icon-circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  transition: all 0.4s ease;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.fac-card h3 {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  transition: color 0.4s ease;
+}
+
+.fac-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 600;
+  opacity: 0.8;
+  transition: color 0.4s ease;
+}
+
+/* ✨ THE HOVER SYSTEM ✨ */
+.fac-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px rgba(var(--hover-color), 0.3); /* Dynamics shadow color using JS variables */
+}
+
+/* On hover, flip text to white */
+.fac-card:hover h3, 
+.fac-card:hover p {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.fac-card:hover .fac-icon-circle {
+  background: #ffffff !important;
+  color: var(--hover-color) !important;
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* DECORATIVE DOTS */
+.fac-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 30px;
+}
+
+.fac-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+/* 📱 MOBILE */
 @media (max-width: 768px) {
-  .facilities-page .trust-premium-grid {
-    grid-template-columns: 1fr;
-  }
+  .fac-hero { padding: 120px 0 140px; }
+  .fac-hero h1 { font-size: 2.8rem; }
+  .fac-desc { font-size: 1.1rem; }
+  .fac-grid { grid-template-columns: 1fr; }
+  .fac-card { padding: 40px 25px; }
 }

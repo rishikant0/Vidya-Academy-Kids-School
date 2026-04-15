@@ -10,6 +10,7 @@
   --p-purple-alt: #8b5cf6;
   --p-green: #4ade80;
   --p-orange: #fb923c;
+  --p-red: #ef4444;
   
   /* Shanti Juniors Inspired Palette */
   --p-deep-blue: #1e3a8a;
@@ -19,16 +20,18 @@
   --p-yellow-bright: #fbbf24;
   
   /* Advanced Gradients */
+  --grad-premium: linear-gradient(135deg, #ff4d4d 0%, #ff6ec7 50%, #8b5cf6 100%);
   --grad-shanti: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 50%, #6d28d9 100%);
+  --grad-sunset: linear-gradient(90deg, #ff4e50 0%, #f9d423 100%);
   --grad-glow: radial-gradient(circle at 50% 50%, rgba(255, 110, 199, 0.2), transparent 70%);
   --grad-btn-vibrant: linear-gradient(90deg, #ec4899, #8b5cf6);
   --grad-text-vibrant: linear-gradient(135deg, #fbbf24, #ec4899, #a78bfa);
+  --grad-hero-overlay: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2));
 
   /* Backgrounds */
   --bg-primary: #ffffff;
   --bg-soft: #fbfdff;
   --bg-vibrant: linear-gradient(180deg, #f0f7ff 0%, #fff1f2 50%, #f5f3ff 100%);
-  --bg-hero: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 50%, #6d28d9 100%);
   
   /* Text */
   --text-dark: #0f172a;
@@ -46,6 +49,7 @@
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
   --shadow-glow-pink: 0 10px 30px rgba(255, 110, 199, 0.3);
+  --shadow-glow-orange: 0 10px 30px rgba(251, 146, 60, 0.3);
   --shadow-glow-blue: 0 10px 30px rgba(110, 168, 255, 0.3);
   
   --radius-sm: 12px;
@@ -91,60 +95,55 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Container */
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
 /* Section Common */
 .section {
-  padding: 120px 0;
+  padding: 100px 0;
   position: relative;
   overflow: hidden;
 }
 
 .section-header {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 70px;
+  max-width: 800px;
+  margin: 0 auto 60px;
 }
 
 .section-badge {
   display: inline-block;
-  padding: 8px 18px;
-  background: rgba(110, 168, 255, 0.15);
-  color: var(--p-blue-alt);
+  padding: 10px 24px;
+  background: rgba(255, 110, 199, 0.1);
+  color: var(--p-pink-alt);
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
 }
 
 .section-title {
-  font-size: 3.5rem;
-  margin-bottom: 1.2rem;
-  background: var(--grad-text);
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  background: var(--grad-text-vibrant);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--text-medium);
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {
-  .section-title { font-size: 2.5rem; }
-  .section { padding: 80px 0; }
-}
-
-@media (max-width: 480px) {
-  .section-title { font-size: 2.1rem; }
-  .container { padding: 0 1rem; }
+  .section-title { font-size: 2.8rem; }
+  .section { padding: 70px 0; }
 }
 
 /* Buttons */
@@ -152,120 +151,123 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.1rem 2.8rem;
+  padding: 1.2rem 3rem;
   font-family: 'Fredoka', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.15rem;
   border-radius: var(--radius-full);
   text-decoration: none;
   transition: var(--transition);
   cursor: pointer;
   border: none;
-  gap: 10px;
+  gap: 12px;
   position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  transform: translateX(100%) skewX(-15deg);
 }
 
 .btn:hover {
   transform: translateY(-5px);
-  filter: brightness(1.05);
+  filter: brightness(1.1);
 }
 
 .btn-primary {
-  background: var(--grad-blue);
+  background: var(--grad-premium);
   color: white;
-  box-shadow: 0 10px 20px -5px rgba(110, 168, 255, 0.4);
+  box-shadow: var(--shadow-glow-pink);
 }
 
-.btn-pink {
-  background: var(--grad-pink);
+.btn-secondary {
+  background: white;
+  color: var(--p-pink-vibrant);
+  border: 2px solid var(--p-pink-vibrant);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
-  box-shadow: 0 10px 20px -5px rgba(255, 110, 199, 0.4);
 }
 
 .btn-glow {
-  box-shadow: 0 0 20px rgba(110, 168, 255, 0.5);
+  box-shadow: 0 0 25px rgba(255, 110, 199, 0.6);
 }
-
-.btn-glow:hover {
-  box-shadow: 0 0 30px rgba(110, 168, 255, 0.7);
-}
-
-/* Background Blobs */
-.blob {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  filter: blur(80px);
-  opacity: 0.15;
-  z-index: -1;
-  border-radius: 50%;
-}
-
-.blob-pink { background: var(--p-pink); top: -10%; right: -10%; }
-.blob-blue { background: var(--p-blue); bottom: -10%; left: -10%; }
 
 /* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-.animate-float-slow {
-  animation: float 8s ease-in-out infinite;
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.animate-float-fast {
-  animation: float 4s ease-in-out infinite;
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.15); }
 }
 
-@keyframes drift {
-  0%, 100% { transform: translate(0, 0); }
-  33% { transform: translate(15px, -15px); }
-  66% { transform: translate(-10px, 10px); }
-}
-
-.animate-drift {
-  animation: drift 10s ease-in-out infinite;
-}
-
-@keyframes pulse-soft {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.05); opacity: 1; }
-}
-
-.animate-pulse-soft {
-  animation: pulse-soft 4s ease-in-out infinite;
-}
-
-/* Wave Divider */
-.wave-divider {
+.glow-effect {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  z-index: 5;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--p-pink) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+  animation: glow-pulse 8s infinite alternate;
 }
 
-.wave-divider svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 70px;
-  fill: #ffffff;
+/* Global Utilities */
+.text-gradient {
+  background: var(--grad-text-vibrant);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Utility Backgrounds */
-.bg-blue { background: rgba(110, 168, 255, 0.15); color: var(--p-blue-alt); }
-.bg-pink { background: rgba(255, 110, 199, 0.15); color: var(--p-pink-alt); }
-.bg-yellow { background: rgba(255, 216, 110, 0.15); color: var(--p-yellow-alt); }
-.bg-purple { background: rgba(167, 139, 250, 0.15); color: var(--p-purple-alt); }
-.bg-green { background: rgba(74, 222, 128, 0.15); color: #166534; }
+.curve-shape {
+  clip-path: ellipse(150% 100% at 50% 100%);
+}
+
+.rounded-modern {
+  border-radius: var(--radius-lg) 0 var(--radius-lg) 0;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+    padding: 1.1rem;
+  }
+  .section-header { text-align: center; }
+}
 
 /* Skeleton */
 .skeleton {
@@ -277,35 +279,4 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes shimmer {
   to { background-position: 200% 0; }
-}
-
-/* 🌈 Global Premium Background */
-body {
-  background: #ffffff;
-  font-family: 'Fredoka', sans-serif;
-}
-
-/* Floating shapes */
-.bg-shape {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.3;
-  z-index: 0;
-}
-
-.shape-pink {
-  background: #ff6ec7;
-  width: 300px;
-  height: 300px;
-  top: 10%;
-  left: 5%;
-}
-
-.shape-blue {
-  background: #6ea8ff;
-  width: 300px;
-  height: 300px;
-  bottom: 10%;
-  right: 5%;
 }

@@ -74,12 +74,12 @@ const Home = () => {
       </Suspense>
 
       <Suspense fallback={<HomeSkeleton />}>
-        <ActivityMasonry />
-      </Suspense>
-
-      <Suspense fallback={<HomeSkeleton />}>
         <GallerySection />
       </Suspense>
+
+      {/* <Suspense fallback={<HomeSkeleton />}>
+        <ActivityMasonry />
+      </Suspense> */}
 
       <Suspense fallback={<HomeSkeleton />}>
         <AdmissionPreview />

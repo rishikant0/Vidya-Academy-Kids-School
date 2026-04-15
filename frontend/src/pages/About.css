@@ -1,150 +1,246 @@
-.about-page {
-  animation: fadeIn 0.8s ease-out;
+/* ==========================================================
+   🧩 ABOUT PAGE V8 - THE DREAM WORLD
+========================================================== */
+
+.about-v8 {
+  background: #ffffff;
+  overflow-x: hidden;
 }
 
-/* ======================== */
-/* PAGE HERO (Common)       */
-/* ======================== */
-.page-hero {
+/* ☀️ HERO SECTION */
+.about-hero {
+  background: linear-gradient(135deg, #fff7ed 0%, #fff1f2 100%); /* Brighter Warm Gradient */
+  padding: 100px 0 140px; 
   position: relative;
-  min-height: 400px;
-  background: var(--grad-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-  color: white;
   overflow: hidden;
-  padding: 100px 0 150px;
 }
 
-.hero-gradient-overlay {
+.about-hero::after {
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
-  z-index: 1;
-}
-
-.page-hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.page-hero-content h1 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 4rem;
-  margin: 20px 0;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.page-hero-content p {
-  font-size: 1.25rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* ======================== */
-/* PRINCIPAL CARD MODERN    */
-/* ======================== */
-.principal-card-modern {
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  background: white;
-  border-radius: 40px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  margin-top: 50px;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-
-.principal-image-wrap {
-  width: 100%;
-  height: 100%;
-}
-
-.principal-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-.principal-info {
-  padding: 60px;
-  position: relative;
-}
-
-.quote-icon {
-  position: absolute;
-  top: 40px;
-  left: 40px;
+  background-image: radial-gradient(#ff6ec7 1px, transparent 1px);
+  background-size: 40px 40px;
   opacity: 0.05;
-  color: var(--p-blue);
 }
 
-.message-content {
+.about-hero-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.decor { position: absolute; }
+.decor.sun { top: -40px; right: -40px; filter: drop-shadow(0 0 40px rgba(252, 211, 77, 0.4)); }
+.decor.cloud-1 { top: 15%; left: 10%; }
+.decor.balloon { top: 20%; left: 5%; font-size: 3rem; }
+.decor.star-vibrant { bottom: 20%; right: 10%; }
+
+.about-hero-text {
   position: relative;
-  z-index: 2;
+  z-index: 10; /* Bring above everything */
+  padding: 0 20px;
 }
 
-.message-content h3 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 2rem;
-  color: var(--p-blue-alt);
+.about-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.1;
   margin-bottom: 25px;
 }
 
-.message-content p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-main);
-  margin-bottom: 20px;
+.text-pink {
+  background: linear-gradient(90deg, #ff4d6d, #ff8fa3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.signature-box {
-  margin-top: 40px;
+.about-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  z-index: 1; /* Keep wave behind text */
+  max-height: 120px;
+}
+
+/* 🧩 MISSION SECTION */
+.v8-about.vibrant-theme .mission-section {
+  background: #fdfdf0; /* Bright Sun Yellow tint */
+  padding: 100px 0;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.mission-visual .main-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1; /* More compact for space */
+  border-radius: 60px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+  border: 15px solid #fff;
+}
+
+.main-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floating-badge-v8 {
+  position: absolute;
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 20px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  font-weight: 800;
+  z-index: 5;
 }
 
-.signature-box .name {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 1.5rem;
-  color: var(--p-pink);
+.floating-badge-v8.top { top: 40px; right: -30px; transform: rotate(5deg); }
+.floating-badge-v8.bottom { bottom: 60px; left: -40px; transform: rotate(-5deg); }
+
+.fac-desc.small { font-size: 1.25rem; margin-bottom: 40px; }
+
+.goal-badges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.goal-chip {
+  padding: 20px 25px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.03);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 800;
+  color: var(--goal-color);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.goal-chip:hover {
+  background: var(--goal-color);
+  color: #ffffff;
+  transform: scale(1.05) translateX(10px);
+}
+
+/* 👩‍🏫 PRINCIPAL SECTION */
+.principal-v8 {
+  padding: 100px 0; /* Reduced from 140px */
+  background: #fdf2f8;
+}
+
+.principal-card-v8 {
+  background: #ffffff;
+  border-radius: 60px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.06);
+}
+
+.p-img-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.p-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.p-exp-pills {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5e239d;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-shadow: 0 10px 20px rgba(94, 35, 157, 0.3);
+}
+
+.p-card-right {
+  padding: 80px 100px;
+  position: relative;
+}
+
+.p-quote-icon {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  opacity: 0.05;
+  color: #5e239d;
+}
+
+.p-card-right h3 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #5e239d;
+  margin-bottom: 30px;
+}
+
+.p-card-right p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #475569;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.p-signature h4 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1e293b;
+  margin: 15px 0 5px;
+}
+
+.p-signature span {
+  font-size: 1.1rem;
+  color: #94a3b8;
   font-weight: 700;
 }
 
-.signature-box .title {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 5px;
+.sig-line {
+  width: 60px;
+  height: 6px;
+  background: #ffce00;
+  border-radius: 3px;
 }
 
-/* ======================== */
-/* RESPONSIVE               */
-/* ======================== */
-@media (max-width: 992px) {
-  .principal-card-modern {
-    grid-template-columns: 1fr;
-  }
-  .principal-image-wrap {
-    height: 400px;
-  }
-  .page-hero-content h1 {
-    font-size: 3rem;
-  }
-  .principal-info {
-    padding: 40px 30px;
-  }
+/* 📱 MOBILE */
+@media (max-width: 1024px) {
+  .mission-grid { grid-template-columns: 1fr; gap: 60px; text-align: center; }
+  .mission-visual .main-frame { width: 100%; margin: 0 auto; border-radius: 40px; border-width: 8px; }
+  .principal-card-v8 { grid-template-columns: 1fr; }
+  .p-img-box { height: 400px; }
+  .p-card-right { padding: 40px 30px; text-align: center; }
+  .p-quote-icon { right: 20px; top: 20px; width: 40px; }
 }
 
 @media (max-width: 768px) {
-  .page-hero-content h1 {
-    font-size: 2.5rem;
-  }
+  .about-hero h1 { font-size: 2.8rem; }
+  .fac-desc { font-size: 1.1rem; }
+  .goal-badges { grid-template-columns: 1fr; }
 }

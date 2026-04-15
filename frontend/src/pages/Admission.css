@@ -1,11 +1,11 @@
-/* Ultra Premium Admission Page v2 */
-.admission-page-v2 {
+/* Ultra Premium Admission Page */
+.admission-page {
   background: var(--bg-soft);
   overflow-x: hidden;
 }
 
 /* 2-Column Hero Section */
-.admission-hero-premium-v2 {
+.admission-hero-premium {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -28,9 +28,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(at 0% 0%, rgba(255, 110, 199, 0.1) 0px, transparent 50%),
-              radial-gradient(at 100% 0%, rgba(110, 168, 255, 0.1) 0px, transparent 50%),
-              radial-gradient(at 50% 50%, rgba(167, 139, 250, 0.05) 0px, transparent 50%);
+  background: transparent;
   filter: blur(40px);
 }
 
@@ -38,15 +36,15 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.2;
-  animation: blob-float-v2 15s infinite alternate ease-in-out;
+  opacity: 0;
+  animation: blob-float 15s infinite alternate ease-in-out;
 }
 
 .blob-1 { width: 500px; height: 500px; background: var(--p-pink); top: -10%; right: -5%; }
 .blob-2 { width: 400px; height: 400px; background: var(--p-blue); bottom: -10%; left: -5%; animation-delay: -5s; }
 .blob-3 { width: 300px; height: 300px; background: var(--p-purple); top: 30%; left: 20%; animation-delay: -10s; }
 
-@keyframes blob-float-v2 {
+@keyframes blob-float {
   from { transform: translate(0,0) scale(1); }
   to { transform: translate(30px, 50px) scale(1.1); }
 }
@@ -83,7 +81,7 @@
 .cloud { top: 25%; left: 10%; font-size: 4.5rem; opacity: 0.6; }
 
 /* Left Content */
-.hero-badge-v2 {
+.hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -97,7 +95,7 @@
   border: 1px solid rgba(255, 110, 199, 0.1);
 }
 
-.hero-title-v3 {
+.hero-title {
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
   line-height: 1.1;
   color: var(--text-dark);
@@ -105,13 +103,13 @@
   font-weight: 800;
 }
 
-.text-gradient-v3 {
+.text-gradient {
   background: var(--grad-mixed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.hero-subtext-v3 {
+.hero-subtext {
   font-size: 1.3rem;
   color: var(--text-medium);
   line-height: 1.6;
@@ -124,14 +122,14 @@
   gap: 20px;
 }
 
-.btn-outline-v2 {
+.btn-outline {
   background: transparent;
   color: var(--p-pink-alt);
   border: 2px solid var(--p-pink-alt);
   padding: 1.25rem 3rem;
 }
 
-.btn-outline-v2:hover {
+.btn-outline:hover {
   background: var(--p-pink-alt);
   color: white;
 }
@@ -141,7 +139,7 @@
   position: relative;
 }
 
-.image-frame-v3 {
+.image-frame {
   position: relative;
   padding: 10px;
   border-radius: 40px;
@@ -157,7 +155,7 @@
   display: block;
 }
 
-.image-glow-v3 {
+.image-glow {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -168,7 +166,7 @@
   z-index: -1;
 }
 
-.hero-wave-v2 {
+.hero-wave {
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -177,8 +175,8 @@
   z-index: 25;
 }
 
-/* Enhanced Form Section v3 */
-.admission-form-section-v3 {
+/* Enhanced Form Section */
+.admission-form-section {
   padding: 140px 0;
   background: var(--bg-soft);
   position: relative;
@@ -253,7 +251,7 @@
   box-shadow: 0 10px 30px rgba(255, 110, 199, 0.3);
 }
 
-.header-content-v3 h2 {
+.header-content h2 {
   font-size: 2.5rem;
   margin-bottom: 5px;
 }
@@ -273,15 +271,15 @@
   letter-spacing: 1px;
 }
 
-/* Input Styling v3 */
-.form-grid-v3 {
+/* Input Styling */
+.form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-bottom: 40px;
 }
 
-.input-group-v3 label {
+.input-group label {
   display: block;
   font-weight: 700;
   margin-bottom: 12px;
@@ -289,7 +287,7 @@
   font-size: 0.95rem;
 }
 
-.input-field-v3 {
+.input-field {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -300,23 +298,23 @@
   transition: all 0.4s ease;
 }
 
-.icon-field-v3 .field-icon {
+.icon-field .field-icon {
   color: var(--text-light);
   transition: color 0.3s;
 }
 
-.input-field-v3:focus-within {
+.input-field:focus-within {
   background: white;
   border-color: var(--p-pink);
   box-shadow: 0 15px 30px rgba(255, 110, 199, 0.1);
   transform: translateY(-3px);
 }
 
-.input-field-v3:focus-within .field-icon {
+.input-field:focus-within .field-icon {
   color: var(--p-pink-alt);
 }
 
-.input-field-v3 input, .input-field-v3 select {
+.input-field input, .input-field select {
   width: 100%;
   border: none;
   background: transparent;
@@ -326,7 +324,7 @@
   color: var(--text-dark);
 }
 
-.btn-premium-v3 {
+.btn-premium {
   background: var(--grad-mixed);
   color: white;
   padding: 1.5rem;
@@ -342,13 +340,13 @@
   transition: all 0.4s;
 }
 
-.btn-premium-v3:hover {
+.btn-premium:hover {
   transform: translateY(-5px);
   box-shadow: 0 30px 60px rgba(167, 139, 250, 0.4);
 }
 
-/* Mini Stats v3 */
-.form-stats-v3 {
+/* Mini Stats */
+.form-stats {
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -369,7 +367,7 @@
 }
 
 /* Error Banner */
-.error-banner-v3 {
+.error-banner {
   background: #fef2f2;
   color: #ef4444;
   padding: 20px;
@@ -381,7 +379,7 @@
 
 /* Responsive fixes */
 @media (max-width: 768px) {
-  .form-grid-v3 { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
   .admission-card-premium { padding: 40px 25px; }
   .form-header-premium { flex-direction: column; text-align: center; gap: 20px; }
 }
@@ -456,7 +454,7 @@
   margin-right: auto;
 }
 
-.error-alert-v2 {
+.error-alert {
   background: rgba(239, 68, 68, 0.1);
   color: #ef4444;
   padding: 15px 25px;

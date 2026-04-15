@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Heart, Star, CheckCircle, Award, Users, BookOpen, Quote } from 'lucide-react';
+import { Shield, Heart, Star, CheckCircle, Award, Users, BookOpen, Quote, Cloud, Sun, Palette } from 'lucide-react';
 import './About.css';
 
 // Import assets
@@ -10,140 +10,106 @@ import storyImg from '../assets/gallery/p11.jpeg';
 
 const About = () => {
   return (
-    <div className="about-page">
-      {/* Header */}
-      <section className="page-hero">
-        <div className="hero-gradient-overlay"></div>
+    <div className="about-v8 vibrant-theme">
+      {/* ☀️ BRIGHT HERO */}
+      <section className="about-hero">
+        <div className="about-hero-decor">
+          <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 4, repeat: Infinity }} className="decor sun"><Sun size={120} fill="#fcd34d" color="#fcd34d" /></motion.div>
+          <motion.div animate={{ y: [-20, 20, -20] }} transition={{ duration: 8, repeat: Infinity }} className="decor cloud-1"><Cloud size={80} fill="#fff" color="#e0f2fe" opacity={0.6} /></motion.div>
+          <motion.div animate={{ y: [0, -40, 0] }} transition={{ duration: 5, repeat: Infinity }} className="decor balloon"><div style={{ fontSize: '3rem' }}>🎈</div></motion.div>
+          <motion.div animate={{ rotate: 360 }} transition={{ duration: 15, repeat: Infinity }} className="decor star-vibrant"><Star size={40} fill="#fb7185" color="#fb7185" opacity={0.4} /></motion.div>
+        </div>
+
         <div className="container">
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="page-hero-content"
+            className="about-hero-text"
           >
-            <span className="section-badge" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>Our Vision</span>
-            <h1>Nurturing Little Dreams</h1>
-            <p>At Vidya Academy, we provide a safe, caring, and vibrant environment where learning meets fun for every child.</p>
+            <span className="fac-badge">Our Wonderful Story</span>
+            <h1 className="shanti-heading">Nurturing Hearts, <br /><span className="text-pink">Inspiring Minds</span></h1>
+            <p className="fac-desc">A vibrant world where every child’s dream takes its first colorful flight.</p>
           </motion.div>
         </div>
-        <div className="wave-divider">
-          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,80 C480,140 960,20 1440,80 L1440,120 L0,120 Z" fill="white"/>
-          </svg>
+
+        <div className="about-wave">
+          <svg viewBox="0 0 1440 160"><path fill="#ffffff" fillOpacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,112C672,128,768,160,864,154.7C960,149,1056,107,1152,101.3C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="story-section section">
+      {/* 🧩 OUR MISSION */}
+      <section className="mission-section">
         <div className="container">
-          <div className="about-grid">
+          <div className="mission-grid">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="about-visual"
+              className="mission-visual"
             >
-              <img src={storyImg} alt="Kids learning" className="visual-main" />
-              <div className="visual-float animate-float">
-                <img src={aboutImg} alt="School Activity" />
+              <div className="main-frame">
+                <img src={storyImg} alt="Kids learning" />
+                <div className="floating-badge-v8 bottom">
+                  <Heart fill="#ff4d6d" color="#ff4d6d" />
+                  <span>Love & Care</span>
+                </div>
               </div>
             </motion.div>
-            
+
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="about-text"
+              className="mission-content"
             >
-              <span className="section-badge">How We Started</span>
-              <h2 className="section-title">Our Story & Mission</h2>
-              <p>Founded with the belief that early childhood education should be full of joy, Vidya Academy Kids School is dedicated to providing an atmosphere where children can grow intellectually, emotionally, and physically.</p>
+              <span className="shanti-label">Since 16+ Years</span>
+              <h2 className="shanti-heading">Our Mission & Goals</h2>
+              <p className="fac-desc small">We believe that a school should be a home away from home — a place filled with laughter, discovery, and constant encouragement.</p>
               
-              <div className="about-chips">
-                <div className="chip"><CheckCircle size={20} /> Child-centric</div>
-                <div className="chip"><Users size={20} /> Loving Staff</div>
-                <div className="chip"><Award size={20} /> Modern Tools</div>
-                <div className="chip"><Star size={20} /> Holistic Focus</div>
+              <div className="goal-badges">
+                {[
+                  { text: 'Creative Learning', color: '#ff6ec7', icon: <Palette size={20} /> },
+                  { text: 'Social Growth', color: '#6ea8ff', icon: <Users size={20} /> },
+                  { text: 'Safe & Secure', color: '#4ade80', icon: <Shield size={20} /> },
+                  { text: 'Expert Staff', color: '#c084fc', icon: <Star size={20} /> }
+                ].map((goal, i) => (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ scale: 1.05, x: 10 }}
+                    className="goal-chip" 
+                    style={{ '--goal-color': goal.color }}
+                  >
+                    {goal.icon} {goal.text}
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="values-section section bg-soft">
+      {/* 👩‍🏫 PRINCIPAL'S MESSAGE */}
+      <section className="principal-v8">
         <div className="container">
-          <div className="section-header">
-            <span className="section-badge">Our Values</span>
-            <h2 className="section-title">What Makes Us Special</h2>
-            <p className="section-subtitle">We believe in building a strong foundation for every child's future.</p>
-          </div>
-          
-          <div className="trust-premium-grid">
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="trust-premium-card"
-            >
-              <div className="card-inner">
-                <div className="icon-box bg-pink"><Heart size={32} /></div>
-                <h3>Focus on Growth</h3>
-                <p>Every activity is designed to nurture cognitive, social, and emotional development.</p>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="trust-premium-card"
-            >
-              <div className="card-inner">
-                <div className="icon-box bg-blue"><BookOpen size={32} /></div>
-                <h3>Play-Based Learning</h3>
-                <p>We blend education with play, ensuring children stay curious and excited every day.</p>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="trust-premium-card"
-            >
-              <div className="card-inner">
-                <div className="icon-box bg-green"><Shield size={32} /></div>
-                <h3>Secure Campus</h3>
-                <p>Your child's safety is our top priority with 24/7 CCTV monitoring and secure access.</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Principal Section */}
-      <section className="principal-section section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-badge">Leadership</span>
-            <h2 className="section-title">Principal's Message</h2>
-          </div>
-
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="principal-card-modern glass"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="principal-card-v8"
           >
-            <div className="principal-image-wrap">
-              <img src={principalImg} alt="Principal Soni Singh" />
+            <div className="p-card-left">
+              <div className="p-img-box">
+                <img src={principalImg} alt="Principal Soni Singh" />
+                <div className="p-exp-pills">16+ Years Experience</div>
+              </div>
             </div>
-            <div className="principal-info">
-              <Quote size={60} className="quote-icon" />
-              <div className="message-content">
-                <h3>Respected Parents & Little Students,</h3>
-                <p>I am <strong>Soni Singh</strong>, and I have 16 years of teaching experience working with young children. During these years, I have learned that early childhood is the most important stage of learning and development. In a play school, children do not just learn letters and numbers; they learn how to speak, share, listen, and express their feelings.</p>
-                <p>My aim as a teacher is to create a happy, safe, and caring environment where every child feels loved, confident, and excited to learn. I strongly believe that every child is unique and special. With patience, love, and proper guidance, each child can grow into a independent learner.</p>
-                
-                <div className="signature-box">
-                  <span className="name">Soni Singh</span>
-                  <span className="title">Principal, Vidya Academy</span>
-                </div>
+            
+            <div className="p-card-right">
+              <Quote size={80} className="p-quote-icon" />
+              <h3>A Message from our Principal</h3>
+              <p>"I strongly believe that every child is unique and special. My goal is to create a happy, safe, and caring environment where every child feels loved, confident, and excited to learn."</p>
+              
+              <div className="p-signature">
+                <div className="sig-line"></div>
+                <h4>Soni Singh</h4>
+                <span>Principal, Vidya Academy</span>
               </div>
             </div>
           </motion.div>

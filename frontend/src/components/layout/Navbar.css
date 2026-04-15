@@ -184,7 +184,15 @@
   }
 
   .mobile-menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1001;
+    color: #5e239d; /* Deep purple for high visibility */
+    transition: 0.3s;
+  }
+
+  .mobile-menu-btn:hover {
+    transform: scale(1.1);
   }
 }

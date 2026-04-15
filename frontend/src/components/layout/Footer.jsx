@@ -87,7 +87,6 @@ const Footer = () => {
               <li>Nursery</li>
               <li>LKG</li>
               <li>UKG</li>
-              <li>Class 1</li>
             </ul>
           </div>
 
