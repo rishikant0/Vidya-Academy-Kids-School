@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Camera, Star, Heart } from 'lucide-react';
+import { Camera, X } from 'lucide-react';
 
-// Import images
+// images
 import heroBg from '../../assets/gallery/hero_bg.jpg';
 import santaKids from '../../assets/gallery/santa_kids.jpg';
 import clayActivity from '../../assets/gallery/clay_activity.jpg';
@@ -11,6 +11,9 @@ import kidsSlide from '../../assets/gallery/kids_slide.jpg';
 import p8 from '../../assets/gallery/p8.jpeg';
 
 const GallerySection = () => {
+
+  const [activeImg, setActiveImg] = useState(null);
+
   const galleryImages = useMemo(() => [
     { src: heroBg, title: 'Our Campus', sub: 'Vidya Academy' },
     { src: santaKids, title: 'Daily Celebration', sub: 'Creative Fun' },
@@ -20,73 +23,73 @@ const GallerySection = () => {
     { src: p8, title: 'Circle Time', sub: 'Group Learning' },
   ], []);
 
-  // Responsive Variants for Desktop Hover and Mobile Entrance
   const cardVariants = {
     initial: { opacity: 0, scale: 0.9, y: 30 },
     animate: { opacity: 1, scale: 1, y: 0 },
-    hover: { 
-      scale: 1.05, 
-      translateY: -10,
-      transition: { duration: 0.4, ease: "easeOut" }
-    }
-  };
-
-  const overlayVariants = {
-    initial: { opacity: 0, y: 40 },
-    hover: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" }
-    },
-    // Special variant for mobile auto-show
-    mobileView: {
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.3, duration: 0.6 }
-    }
   };
 
   return (
     <section className="v9-gallery-section">
       <div className="container">
+
+        {/* HEADER */}
         <div className="v9-gallery-header">
           <span className="v9-gallery-badge">Gallery of Joy</span>
           <h2>Gallery Moments</h2>
-          <p className="v9-gallery-subtitle">A glimpse into the vibrant life and happy faces within our campus.</p>
+          <p className="v9-gallery-subtitle">
+            A glimpse into the vibrant life and happy faces within our campus.
+          </p>
         </div>
 
+        {/* GRID */}
         <div className="v9-gallery-grid">
           {galleryImages.map((img, idx) => (
-            <motion.div 
+            <motion.div
               key={idx}
               variants={cardVariants}
               initial="initial"
               whileInView="animate"
-              whileHover="hover"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true }}
               className="v9-gallery-card"
+              onClick={() => setActiveImg(img.src)}   // ✅ OPEN MODAL
             >
               <div className="v9-gallery-img">
-                <img src={img.src} alt={img.title} loading="lazy" />
-                
-                {/* 🏷️ OVERLAY WITH ENHANCED INTERACTION */}
-                <motion.div 
-                  variants={overlayVariants}
-                  // On mobile, the overlay is visible when the card is in view
-                  className="v9-gallery-overlay responsive-overlay"
-                >
+
+                {/* IMAGE WITH ZOOM */}
+                <motion.img
+                  src={img.src}
+                  alt={img.title}
+                  loading="lazy"
+                  whileHover={{ scale: 1.12 }}
+                  transition={{ duration: 0.5 }}
+                />
+
+                {/* OVERLAY */}
+                <div className="v9-gallery-overlay">
                   <div className="v9-overlay-text">
                     <span className="v9-sub-text">{img.sub}</span>
                     <h4 className="v9-main-title">{img.title}</h4>
                   </div>
+
                   <div className="v9-overlay-icon">
-                    <Camera size={20} color="white" />
+                    <Camera size={20} />
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* 🔥 FULLSCREEN MODAL */}
+        {activeImg && (
+          <div className="gallery-modal" onClick={() => setActiveImg(null)}>
+            <button className="close-btn">
+              <X size={26} />
+            </button>
+            <img src={activeImg} alt="preview" />
+          </div>
+        )}
+
       </div>
     </section>
   );

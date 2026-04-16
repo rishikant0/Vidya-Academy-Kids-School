@@ -15,59 +15,81 @@ const AdmissionPreview = () => {
 
   return (
     <section className="v6-admission-cta">
-      {/* Dynamic Background */}
+      {/* Gradient Background */}
+      <div className="v6-bg-gradient"></div>
+
+      {/* Animated Shapes */}
       <div className="v6-bg-shapes">
         <div className="shape s-1"></div>
         <div className="shape s-2"></div>
+        <div className="shape s-3"></div>
       </div>
 
       <div className="container">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          whileHover={{ scale: 1.02 }}
           className="v6-cta-card glass"
         >
           {/* Floating Icons */}
-          <motion.div 
-            animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
+          <motion.div
+            animate={{ y: [0, -20, 0], rotate: [0, 15, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
             className="v6-cta-floating heart"
           >
-            <Heart size={40} fill="var(--p-pink)" color="var(--p-pink)" />
+            <Heart size={42} fill="#ff4d6d" color="#ff4d6d" />
           </motion.div>
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1], rotate: [0, -15, 0] }}
+
+          <motion.div
+            animate={{ scale: [1, 1.3, 1], rotate: [0, -20, 0] }}
             transition={{ duration: 5, repeat: Infinity }}
             className="v6-cta-floating star"
           >
-            <Star size={45} fill="var(--p-yellow)" color="var(--p-yellow)" />
+            <Star size={48} fill="#ffd60a" color="#ffd60a" />
           </motion.div>
 
           <div className="v6-cta-content">
-            <div className="v6-cta-badge glass">
-              <Sparkles size={18} className="star-icon" />
-              <span>Admissions Open {getSessionYear()}</span>
-            </div>
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="v6-cta-badge glass glow"
+            >
+              <div className="v6-cta-badge">
+  <Sparkles size={18} />
+  Admissions Open {getSessionYear()}
+</div>
+            </motion.div>
 
+            {/* Title */}
             <h2 className="v6-cta-title">
-              Ready to Give Your Child <br />
-              <span className="text-gradient">The Best Start?</span>
+              Give Your Child a <br />
+              <span className="text-gradient">Bright Future 🚀</span>
             </h2>
 
+            {/* Description */}
             <p className="v6-cta-desc">
-              Join the Vidya Academy family today. Our limited seats fill up fast! 
-              Enroll your child for a future filled with joy and success.
+              Limited seats available! Join Vidya Academy and unlock a world of
+              creativity, learning, and joyful growth.
             </p>
 
+            {/* Buttons */}
             <div className="v6-cta-btns">
-              <Link to="/admission" className="btn btn-primary btn-glow">
-                Apply Online Now <ArrowRight size={22} />
-              </Link>
-              <Link to="/contact" className="btn btn-glass">
-                Visit Our Campus
-              </Link>
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <Link to="/admission" className="btn btn-primary btn-glow">
+                  Apply Now <ArrowRight size={22} />
+                </Link>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.08 }}>
+                <Link to="/contact" className="btn btn-glass">
+                  Visit Campus
+                </Link>
+              </motion.div>
             </div>
           </div>
         </motion.div>
