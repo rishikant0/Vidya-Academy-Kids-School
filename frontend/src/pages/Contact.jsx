@@ -105,7 +105,7 @@ const Contact = () => {
               className="hero-right"
             >
               <div className="hero-image-wrapper-v2 animate-float">
-                <img src="/src/assets/contact-hero.png" alt="Happy Children" className="hero-main-img" />
+                <img src="/src/assets/gallery/contact-hero.png" alt="Happy Children" className="hero-main-img" />
                 <div className="img-glow"></div>
               </div>
             </motion.div>

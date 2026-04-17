@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight } from "lucide-react";
 
+const text = "Welcome to Vidya Academy";
+
 const Hero = () => {
   return (
     <section className="hero-premium-v6">
@@ -17,29 +19,63 @@ const Hero = () => {
         <div className="hero-v6-flex-wrapper">
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
             className="hero-v6-text-content"
           >
+
+            {/* BADGE */}
             <div className="v6-badge">
               <Sparkles size={16} /> Ranchi's Best Preschool
             </div>
 
-            <h1 className="v6-title">
-              Welcome to <br />
-              <span className="text-gradient">Vidya Academy</span>
+            {/* 🔥 TITLE (WORD ANIMATION) */}
+            <h1 className="v6-title gradient-text gradient-text-glow">
+              {text.split(" ").map((word, i) => (
+                <motion.span
+                  key={i}
+                  style={{ marginRight: "10px", display: "inline-block" }}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: i * 0.2,
+                    duration: 0.6,
+                    ease: "easeOut"
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </h1>
 
-            <h2 className="v6-subtitle-alt">
+            {/* SUBTITLE */}
+            <motion.h2
+              className="v6-subtitle-alt gradient-text"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
               Where Little Dreams Take Flight!
-            </h2>
+            </motion.h2>
 
-            <p className="v6-desc">
+            {/* DESCRIPTION */}
+            <motion.p
+              className="v6-desc gradient-text"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.3, duration: 0.6 }}
+            >
               Experience a world of joy, creativity, and discovery.
-            </p>
+            </motion.p>
 
-            <div className="v6-actions">
+            {/* BUTTONS */}
+            <motion.div
+              className="v6-actions"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.6 }}
+            >
               <Link to="/admission" className="btn btn-primary">
                 Apply Now <ArrowRight size={20} />
               </Link>
@@ -47,14 +83,11 @@ const Hero = () => {
               <Link to="/about" className="btn btn-secondary">
                 Learn More
               </Link>
-            </div>
+            </motion.div>
 
           </motion.div>
         </div>
       </div>
-
-      {/* ❌ REMOVE THIS (IMPORTANT) */}
-      {/* <div className="v6-wave">...</div> */}
 
     </section>
   );

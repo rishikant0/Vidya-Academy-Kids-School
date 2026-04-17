@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "./Navbar.css";
@@ -6,31 +6,48 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef();
 
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close menu on link click
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className={`navbar-wrapper ${scrolled ? "scrolled" : ""}`}>
+    <header
+      ref={navRef}
+      className={`navbar-wrapper ${scrolled ? "scrolled" : ""}`}
+    >
       <div className="container navbar">
 
-        {/* Logo */}
+        {/* LOGO */}
         <Link to="/" className="logo" onClick={closeMenu}>
           <div className="logo-icon">VA</div>
-          <div className="logo-text">
-            <span className="logo-name">
-              <span className="highlight">Vidya</span> Academy
-            </span>
+          <div>
+            <span className="logo-name gradient-text">
+  Vidya Academy
+</span>
             <span className="logo-tagline">Kids School</span>
           </div>
         </Link>
 
-        {/* Nav Links */}
+        {/* NAV LINKS */}
         <nav className={`nav-links ${isOpen ? "open" : ""}`}>
           <NavLink to="/" end onClick={closeMenu}>Home</NavLink>
           <NavLink to="/about" onClick={closeMenu}>About</NavLink>
@@ -38,17 +55,15 @@ const Navbar = () => {
           <NavLink to="/gallery" onClick={closeMenu}>Gallery</NavLink>
           <NavLink to="/contact" onClick={closeMenu}>Contact</NavLink>
 
-          {/* CTA */}
           <NavLink to="/admission" className="nav-cta" onClick={closeMenu}>
             Admission
           </NavLink>
         </nav>
 
-        {/* Mobile Button */}
+        {/* MOBILE BUTTON */}
         <button
           className="mobile-menu-btn"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>

@@ -336,6 +336,72 @@
 }
 
 
+/* ================= ANIMATED GRADIENT TEXT ================= */
+.gradient-text {
+  background: linear-gradient(90deg, #ff6ec7, #6ea8ff, #ffd86e);
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* APPLY TO ALL HERO TEXT */
+.hero-v6-text-content {
+  color: transparent; /* override old color */
+}
+
+
+
+/* ================= PREMIUM SHIMMER TEXT ================= */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ff6ec7,
+    #6ea8ff,
+    #ffd86e,
+    #ff6ec7
+  );
+  background-size: 300% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: shimmer 5s linear infinite;
+}
+
+/* shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+/* 🔥 glow effect */
+.gradient-text-glow {
+  text-shadow:
+    0 0 10px rgba(255, 110, 199, 0.4),
+    0 0 20px rgba(110, 168, 255, 0.4);
+}
+
+/* remove old color */
+.hero-v6-text-content {
+  color: transparent;
+}
+
 /* ================= ABOUT SECTION PREMIUM ================= */
 
 .v6-about {
