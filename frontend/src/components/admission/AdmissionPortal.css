@@ -1,0 +1,241 @@
+/* ================= MAIN SECTION ================= */
+.portal-section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  padding: 80px;
+  position: relative;
+  overflow: hidden;
+
+  background: radial-gradient(circle at 20% 30%, #e0f2fe, transparent),
+              radial-gradient(circle at 80% 70%, #fdf4ff, transparent),
+              linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+/* FLOATING DECOR */
+.portal-section::before {
+  content: "🎈";
+  position: absolute;
+  font-size: 3rem;
+  top: 15%;
+  left: 10%;
+  opacity: 0.4;
+  animation: float 6s infinite ease-in-out;
+}
+
+.portal-section::after {
+  content: "⭐";
+  position: absolute;
+  font-size: 2rem;
+  bottom: 20%;
+  right: 10%;
+  opacity: 0.4;
+  animation: float 7s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= LEFT SIDE ================= */
+.portal-left h1 {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+.portal-left h1 span {
+  background: linear-gradient(90deg, #10b981, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.portal-left p {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #64748b;
+  max-width: 420px;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  background: #dcfce7;
+  color: #16a34a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+}
+
+/* FEATURES */
+.features {
+  margin-top: 25px;
+  display: grid;
+  gap: 12px;
+}
+
+.features div {
+  background: white;
+  padding: 10px 16px;
+  border-radius: 14px;
+  width: fit-content;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.features div:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* ================= FORM CARD ================= */
+.portal-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 35px;
+  max-width: 450px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: 0.4s;
+}
+
+.portal-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ================= FORM ================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* LABEL */
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* INPUT */
+input,
+select {
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+/* INPUT HOVER */
+input:hover,
+select:hover {
+  transform: translateY(-2px);
+}
+
+/* INPUT FOCUS */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #10b981;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
+}
+
+/* ROW */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ================= BUTTON ================= */
+.submit-btn {
+  margin-top: 15px;
+  padding: 16px;
+  border-radius: 999px;
+  border: none;
+
+  background: linear-gradient(135deg, #10b981, #06b6d4);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+/* SHINE EFFECT */
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+}
+
+.submit-btn:hover::before {
+  animation: shine 0.8s;
+}
+
+@keyframes shine {
+  to { transform: translateX(100%); }
+}
+
+/* BUTTON HOVER */
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(16,185,129,0.4);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .portal-section {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .portal-left {
+    text-align: center;
+  }
+
+  .portal-left p {
+    margin: auto;
+  }
+
+  .features {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-card {
+    max-width: 100%;
+  }
+
+  .portal-left h1 {
+    font-size: 2.2rem;
+  }
+}

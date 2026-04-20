@@ -1,432 +1,260 @@
 /* ================= GLOBAL ================= */
-
 .admission-page {
-  background: linear-gradient(135deg, #fff5f7, #f0f9ff, #fdf4ff);
+  background: linear-gradient(135deg, #fdf4ff, #f0f9ff);
   overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* ================= HERO SECTION ================= */
+html {
+  scroll-behavior: smooth;
+}
 
+/* ================= HERO ================= */
 .admission-hero-premium {
   position: relative;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
+  padding: 100px 0;
   overflow: hidden;
-  padding: 80px 0;
 }
 
-/* 🌈 SOFT COLOR BLOBS */
-.hero-bg-canvas::before {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: #ff6ec7;
-  top: -100px;
-  left: -100px;
-  filter: blur(120px);
-  opacity: 0.3;
-}
-
+/* ================= BACKGROUND GLOW ================= */
+.hero-bg-canvas::before,
 .hero-bg-canvas::after {
   content: "";
   position: absolute;
   width: 400px;
   height: 400px;
+  filter: blur(120px);
+  opacity: 0.3;
+  animation: glowPulse 6s infinite alternate;
+}
+
+.hero-bg-canvas::before {
+  background: #ff6ec7;
+  top: -100px;
+  left: -100px;
+}
+
+.hero-bg-canvas::after {
   background: #4facfe;
   bottom: -100px;
   right: -100px;
-  filter: blur(120px);
-  opacity: 0.3;
 }
 
-/* GRID */
+@keyframes glowPulse {
+  from { opacity: 0.2; transform: scale(1); }
+  to { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* ================= GRID ================= */
 .hero-2-col-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 60px;
   align-items: center;
   position: relative;
-  z-index: 10;
+  z-index: 2;
 }
 
-/* ================= FLOATING EMOJIS ================= */
+/* ================= BADGE ================= */
+.admission-badge {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #2563eb;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
 
-.emojis-layer {
+.admission-badge:hover {
+  transform: scale(1.05);
+}
+
+/* ================= TITLE ================= */
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.highlight-blue {
+  color: #3b82f6;
+  position: relative;
+}
+
+.highlight-blue::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 15;
+  width: 100%;
+  height: 6px;
+  background: #facc15;
+  bottom: -5px;
+  left: 0;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
+.highlight-blue:hover::after {
+  height: 10px;
+}
+
+.highlight-pink {
+  color: #ec4899;
+}
+
+/* ================= TEXT ================= */
+.hero-subtext {
+  margin-top: 20px;
+  color: #64748b;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+/* ================= FEATURE CARDS ================= */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.feature-card {
+  background: white;
+  padding: 14px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px) scale(1.07);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.1);
+}
+
+.feature-card:active {
+  transform: scale(0.95);
+}
+
+/* ================= BUTTONS ================= */
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-premium {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-premium:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 30px 80px rgba(236,72,153,0.6);
+}
+
+.btn-premium:active {
+  transform: scale(0.95);
+}
+
+.btn-outline {
+  border: 2px solid #ec4899;
+  padding: 14px 28px;
+  border-radius: 30px;
+  color: #ec4899;
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: #ec4899;
+  color: white;
+  transform: translateY(-5px);
+}
+
+.btn-outline:active {
+  transform: scale(0.95);
+}
+
+/* ================= IMAGE ================= */
+.hero-image-side {
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+}
+
+.image-frame:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 50px 120px rgba(0,0,0,0.2);
+}
+
+.image-frame img {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* IMAGE BADGE */
+.image-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ec4899;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* ================= FLOATING ================= */
 .floating-emoji {
   position: absolute;
-  font-size: 3rem;
-  animation: floaty 6s infinite ease-in-out;
+  font-size: 2rem;
+  opacity: 0.5;
+  animation: float 6s infinite ease-in-out;
+  pointer-events: none;
 }
 
-.balloon { top: 15%; right: 45%; font-size: 4rem; }
-.star { bottom: 20%; left: 8%; font-size: 2.5rem; }
-.toy { top: 60%; left: 45%; }
-.cloud { top: 25%; left: 10%; opacity: 0.6; }
+.balloon { top: 10%; right: 10%; }
+.star { bottom: 10%; left: 5%; }
+.toy { top: 60%; left: 40%; }
+.cloud { top: 20%; left: 10%; }
 
-@keyframes floaty {
+@keyframes float {
   0% { transform: translateY(0); }
   50% { transform: translateY(-25px); }
   100% { transform: translateY(0); }
 }
 
-/* ================= LEFT CONTENT ================= */
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 24px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 100px;
-  font-weight: 700;
-  margin-bottom: 2rem;
-}
-
-.hero-title {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  line-height: 1.1;
-  margin-bottom: 2rem;
-  font-weight: 900;
-}
-
-.text-gradient {
-  background: linear-gradient(90deg, #ff4d6d, #7c3aed, #4facfe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtext {
-  font-size: 1.2rem;
-  color: #475569;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-}
-
-/* BUTTONS */
-.hero-cta-group {
-  display: flex;
-  gap: 15px;
-}
-
-.btn-premium {
-  background: linear-gradient(135deg, #ff4d6d, #7c3aed);
-  color: white;
-  padding: 14px 26px;
-  border-radius: 30px;
-  font-weight: 700;
-  box-shadow: 0 10px 25px rgba(255,77,109,0.4);
-  transition: 0.3s;
-}
-
-.btn-premium:hover {
-  transform: translateY(-3px);
-}
-
-.btn-outline {
-  border: 2px solid #ff4d6d;
-  padding: 14px 26px;
-  border-radius: 30px;
-  color: #ff4d6d;
-}
-
-/* ================= IMAGE ================= */
-
-.hero-image-side {
-  position: relative;
-}
-
-.image-frame {
-  padding: 10px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.1);
-}
-
-.hero-kids-img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-.image-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, rgba(255,110,199,0.3), transparent 70%);
-  z-index: -1;
-}
-
-/* ================= FORM SECTION PREMIUM ================= */
-
-.admission-form-section {
-  padding: 120px 0;
-  position: relative;
-  background: linear-gradient(135deg, #fff5f7, #f0f9ff, #fdf4ff);
-  overflow: hidden;
-}
-
-/* 🌈 BACKGROUND GLOW BLOBS */
-.form-premium-bg::before {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: #ff6ec7;
-  top: -100px;
-  left: -100px;
-  filter: blur(120px);
-  opacity: 0.2;
-}
-
-.form-premium-bg::after {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: #4facfe;
-  bottom: -100px;
-  right: -100px;
-  filter: blur(120px);
-  opacity: 0.2;
-}
-
-/* ================= CARD ================= */
-
-.admission-card-premium {
-  background: rgba(255,255,255,0.75);
-  backdrop-filter: blur(25px);
-  border-radius: 35px;
-  padding: 50px;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.08),
-    0 0 40px rgba(255,77,109,0.1);
-
-  border: 1px solid rgba(255,255,255,0.6);
-}
-
-/* ================= HEADER ================= */
-
-.form-header-premium {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.icon-badge-premium {
-  width: 70px;
-  height: 70px;
-  margin: auto;
-  margin-bottom: 15px;
-
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: linear-gradient(135deg, #ff4d6d, #7c3aed);
-  color: white;
-
-  box-shadow: 0 10px 30px rgba(255,77,109,0.4);
-}
-
-.form-step-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: 50px;
-
-  background: rgba(255,77,109,0.1);
-  color: #ff4d6d;
-
-  font-weight: 800;
-  font-size: 0.8rem;
-  margin-bottom: 10px;
-}
-
-.form-header-premium h2 {
-  font-size: 2rem;
-  font-weight: 900;
-}
-
-.form-header-premium p {
-  color: #64748b;
-}
-
-/* ================= INPUT GRID ================= */
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
-}
-
-/* ================= INPUT ================= */
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.input-group label {
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-/* INPUT FIELD STYLE */
-.input-field {
-  background: linear-gradient(135deg, #fdfbfb, #ebedee);
-  border-radius: 20px;
-  padding: 16px 20px;
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-/* ICON */
-.field-icon {
-  color: #94a3b8;
-}
-
-/* INPUT TEXT */
-.input-field input,
-.input-field select {
-  border: none;
-  outline: none;
-  background: transparent;
-  width: 100%;
-  font-size: 1rem;
-  color: #1e293b;
-}
-
-/* HOVER EFFECT */
-.input-field:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-/* FOCUS EFFECT 🔥 */
-.input-field:focus-within {
-  background: white;
-  border: 2px solid #ff4d6d;
-
-  box-shadow:
-    0 10px 30px rgba(255,77,109,0.2),
-    0 0 0 4px rgba(255,77,109,0.1);
-}
-
-/* FULL WIDTH FIELD */
-.full-width {
-  grid-column: span 2;
-}
-
-/* ================= BUTTON ================= */
-
-.form-submit-wrapper {
-  margin-top: 30px;
-}
-
-.btn-premium {
-  width: 100%;
-  padding: 16px;
-  border-radius: 25px;
-
-  background: linear-gradient(135deg, #ff4d6d, #7c3aed);
-  color: white;
-
-  font-size: 1.1rem;
-  font-weight: 800;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  box-shadow: 0 15px 40px rgba(255,77,109,0.4);
-  transition: all 0.3s ease;
-}
-
-.btn-premium:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 60px rgba(255,77,109,0.5);
-}
-
-/* ================= STATS ================= */
-
-.form-stats {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
-
-.mini-pill {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  background: white;
-  padding: 8px 14px;
-  border-radius: 30px;
-
-  font-weight: 600;
-  font-size: 0.85rem;
-
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-/* ================= ERROR ================= */
-
-.error-banner {
-  background: #fef2f2;
-  color: #ef4444;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  font-weight: 600;
+/* ================= EXTRA SECTION ================= */
+.extra-section {
+  padding: 120px 20px;
 }
 
 /* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .full-width {
-    grid-column: span 1;
-  }
-
-  .admission-card-premium {
-    padding: 30px 20px;
-    border-radius: 25px;
-  }
-
-  .input-field {
-    padding: 14px;
-  }
-
-  .btn-premium {
-    font-size: 1rem;
-    padding: 14px;
-  }
-
-}
-
-/* ================= MOBILE ================= */
-
 @media (max-width: 768px) {
 
   .hero-2-col-grid {
@@ -434,25 +262,15 @@
     text-align: center;
   }
 
-  .hero-title {
-    font-size: 2rem;
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-subtext {
-    font-size: 1rem;
-  }
-
-  .hero-cta-group {
+  .hero-buttons {
     flex-direction: column;
   }
 
-  .btn-premium,
-  .btn-outline {
-    width: 100%;
+  .hero-title {
+    font-size: 2.2rem;
   }
-
-  .image-frame {
-    margin-top: 20px;
-  }
-
 }
