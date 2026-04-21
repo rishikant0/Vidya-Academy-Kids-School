@@ -46,71 +46,65 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      {/* Premium Hero Section */}
-      <section className="contact-hero-premium">
-        {/* Animated Background Layers */}
-        <div className="hero-bg-layers">
-          <div className="bg-gradient-mesh"></div>
-          <div className="bg-blob blob-purple"></div>
-          <div className="bg-blob blob-pink"></div>
-          <div className="bg-blob blob-blue"></div>
-          <div className="abstract-waves">
-            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-              <path d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,128C672,107,768,117,864,138.7C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-          </div>
-        </div>
+      {/* ================= PREMIUM HERO ================= */}
+<section className="contact-hero-premium">
 
-        {/* Floating Elements */}
-        <div className="floating-elements-container">
-          <motion.div animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }} transition={{ duration: 4, repeat: Infinity }} className="float-item balloon">🎈</motion.div>
-          <motion.div animate={{ y: [0, 15, 0], scale: [1, 1.1, 1] }} transition={{ duration: 5, repeat: Infinity }} className="float-item star">⭐</motion.div>
-          <motion.div animate={{ x: [0, 10, 0], y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity }} className="float-item cloud">☁️</motion.div>
-          <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="float-item sparkle">✨</motion.div>
-          <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4.5, repeat: Infinity }} className="float-item toy">🧸</motion.div>
-        </div>
+  {/* 🎨 BACKGROUND LAYERS */}
+  <div className="hero-bg">
+    <div className="gradient-mesh"></div>
+    <div className="glow blob1"></div>
+    <div className="glow blob2"></div>
+    <div className="glow blob3"></div>
+  </div>
 
-        <div className="container">
-          <div className="hero-main-grid">
-            {/* Left Content */}
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="hero-left"
-            >
-              <div className="premium-badge-v2">
-                <Sparkles size={14} /> <span>Get in Touch</span>
-              </div>
-              <h1 className="hero-title-v2">
-                Let's Start a <br />
-                <span className="text-gradient-v2">Conversation</span>
-              </h1>
-              <p className="hero-desc-v2">
-                Have questions about our vibrant learning environment? Our friendly team is here to guide you through every step of your child's journey.
-              </p>
-              <div className="hero-actions">
-                <a href="#contact-form" className="btn btn-premium-v2">
-                  <span>Send Message</span>
-                  <Send size={20} />
-                </a>
-              </div>
-            </motion.div>
+  {/* ✨ FLOATING ELEMENTS */}
+  <div className="floating-elements">
+    <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="float">🎈</motion.div>
+    <motion.div animate={{ y: [0, 15, 0] }} transition={{ duration: 5, repeat: Infinity }} className="float star">⭐</motion.div>
+    <motion.div animate={{ rotate: [0, 360] }} transition={{ duration: 20, repeat: Infinity }} className="float sparkle">✨</motion.div>
+  </div>
 
-            {/* Right Content */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1, type: "spring" }}
-              className="hero-right"
-            >
-              <div className="hero-image-wrapper-v2 animate-float">
-                <img src="/src/assets/gallery/contact-hero.png" alt="Happy Children" className="hero-main-img" />
-                <div className="img-glow"></div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
+  <div className="container hero-grid">
+
+    {/* LEFT */}
+    <motion.div 
+      initial={{ opacity: 0, x: -40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7 }}
+      className="hero-left"
+    >
+      <div className="hero-badge">
+        <Sparkles size={14}/> Get in Touch
+      </div>
+
+      <h1 className="hero-title">
+        Let’s Start a <br />
+        <span>Conversation</span>
+      </h1>
+
+      <p className="hero-desc">
+        Have questions about our vibrant learning environment? Our friendly team is here to guide you through every step of your child's journey.
+      </p>
+
+      <a href="#contact-form" className="hero-btn">
+        Send Message <Send size={18}/>
+      </a>
+    </motion.div>
+
+    {/* RIGHT */}
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.9 }}
+      className="hero-right"
+    >
+      <div className="hero-img-box">
+        <img src="/src/assets/gallery/contact-hero.png" alt="Kids" />
+      </div>
+    </motion.div>
+
+  </div>
+
 
         {/* Bottom divider overlap */}
         <div className="bottom-wave-overlap">

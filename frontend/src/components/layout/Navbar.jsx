@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "./Navbar.css";
+import logo from "../../assets/gallery/logo.jpeg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,9 @@ const Navbar = () => {
 
         {/* LOGO */}
         <Link to="/" className="logo" onClick={closeMenu}>
-          <div className="logo-icon">VA</div>
+          <div className="logo-icon">
+            <img src={logo} alt="Vidya Acadmic Logo" />
+          </div>
           <div>
             <span className="logo-name school-red">
               Vidya Acadmic

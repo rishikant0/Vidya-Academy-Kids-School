@@ -11,7 +11,7 @@ const Hero = lazy(() => import("../components/home/Hero"));
 const TrustSection = lazy(() => import("../components/home/TrustSection"));
 const AboutPreview = lazy(() => import("../components/home/AboutPreview"));
 const Programmes = lazy(() => import("../components/home/Programmes"));
-const ActivityMasonry = lazy(() => import("../components/home/ActivityMasonry"));
+
 const GallerySection = lazy(() => import("../components/home/GallerySection"));
 const AdmissionPreview = lazy(() => import("../components/home/AdmissionPreview"));
 
@@ -77,9 +77,6 @@ const Home = () => {
         <GallerySection />
       </Suspense>
 
-      {/* <Suspense fallback={<HomeSkeleton />}>
-        <ActivityMasonry />
-      </Suspense> */}
 
       <Suspense fallback={<HomeSkeleton />}>
         <AdmissionPreview />

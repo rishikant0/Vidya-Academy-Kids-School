@@ -9,7 +9,7 @@ import santaKids from '../assets/gallery/santa_kids.jpg';
 import clayActivity from '../assets/gallery/clay_activity.jpg';
 import outdoorPlay from '../assets/gallery/outdoor_play.jpg';
 import kidsSlide from '../assets/gallery/kids_slide.jpg';
-import gallery1 from '../assets/gallery1.png';
+// import gallery1 from '../assets/gallery1.png';
 import p4 from '../assets/gallery/p4.jpeg';
 import p5 from '../assets/gallery/p5.jpeg';
 import p6 from '../assets/gallery/p6.jpeg';

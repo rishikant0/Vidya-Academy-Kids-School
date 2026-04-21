@@ -4,7 +4,7 @@ import { Shield, Heart, Star, CheckCircle, Award, Users, BookOpen, Quote, Cloud,
 import './About.css';
 
 // Import assets
-import principalImg from '../assets/principal.jpeg';
+import principalImg from '../assets/gallery/principal.jpeg';
 import aboutImg from '../assets/gallery/p14.jpeg';
 import storyImg from '../assets/gallery/p11.jpeg';
 
@@ -86,35 +86,63 @@ const About = () => {
         </div>
       </section>
 
-      {/* 👩‍🏫 PRINCIPAL'S MESSAGE */}
-      <section className="principal-v8">
-        <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="principal-card-v8"
-          >
-            <div className="p-card-left">
-              <div className="p-img-box">
-                <img src={principalImg} alt="Principal Soni Singh" />
-                <div className="p-exp-pills">16+ Years Experience</div>
-              </div>
-            </div>
-            
-            <div className="p-card-right">
-              <Quote size={80} className="p-quote-icon" />
-              <h3>A Message from our Principal</h3>
-              <p>"I strongly believe that every child is unique and special. My goal is to create a happy, safe, and caring environment where every child feels loved, confident, and excited to learn."</p>
-              
-              <div className="p-signature">
-                <div className="sig-line"></div>
-                <h4>Soni Singh</h4>
-                <span>Principal, Vidya Academy</span>
-              </div>
-            </div>
-          </motion.div>
+     {/* 👩‍🏫 PRINCIPAL'S MESSAGE */}
+<section className="principal-v8">
+  <div className="container">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      className="principal-card-v8"
+    >
+      {/* LEFT IMAGE */}
+      <div className="p-card-left">
+        <div className="p-img-box">
+          <img src={principalImg} alt="Principal Soni Singh" />
+          <div className="p-exp-pills">16+ Years Experience</div>
         </div>
-      </section>
+      </div>
+
+      {/* RIGHT CONTENT */}
+      <div className="p-card-right">
+        <Quote size={60} className="p-quote-icon" />
+
+        <span className="badge-principal">Principal's Message</span>
+
+        <h3 className="p-title">Inspiring Young Minds 🌟</h3>
+
+        <p className="principal-message">
+          Good morning respected parents and my dear little students,<br /><br />
+
+          My name is Soni Singh and I have 16 years of teaching experience working with young children. 
+          Early childhood is the most important stage of learning and development. 
+          In a play school, children learn how to speak, share, listen, and express emotions.<br /><br />
+
+          My aim is to create a happy, safe, and caring environment where every child feels loved, confident, 
+          and excited to learn.<br /><br />
+
+          Every child is unique and special. With love, patience, and guidance, 
+          each child can grow into a confident learner.<br /><br />
+
+          <b>Parent Tips:</b><br />
+          • Maintain a daily routine<br />
+          • Limit screen time<br />
+          • Encourage creative activities<br />
+          • Talk & listen daily<br /><br />
+
+          Together, we can build a strong foundation for a bright future.<br /><br />
+
+          Thank you.
+        </p>
+
+        <div className="p-signature">
+          <div className="sig-line"></div>
+          <h4>Soni Singh</h4>
+          <span>Principal, Vidya Academy</span>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
     </div>
   );
 };
