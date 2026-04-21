@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Baby, Calendar, Clock, ArrowRight } from "lucide-react";
-
+import "./Programmes.css";
 // Import images
 import img1 from "../../assets/gallery/p4.jpeg";
 import img2 from "../../assets/gallery/p10.jpeg";

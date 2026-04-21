@@ -83,8 +83,13 @@
   color: #333;
 }
 
+.school-red {
+  color: #ff3e3e;
+  text-shadow: 2px 2px 4px rgba(255, 62, 62, 0.2);
+}
+
 .gradient-text {
-  background: linear-gradient(90deg, #ff6ec7);
+  background: linear-gradient(90deg, #ff6ec7, #6ea8ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 15px rgba(255, 110, 199, 0.3);

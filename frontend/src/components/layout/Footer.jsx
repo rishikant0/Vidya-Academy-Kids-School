@@ -90,13 +90,21 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="footer-contact">
             <h4>Contact Info</h4>
-            <ul>
-              <li><MapPin size={18} /> Ranchi, Jharkhand</li>
-              <li><Phone size={18} /> <a href="tel:+916207383145">+91 62073 83145</a></li>
-              <li><Mail size={18} /> <a href="mailto:info@vidyaacademy.com">info@vidyaacademy.com</a></li>
+            <ul className="footer-contact-list">
+              <li className="contact-item map">
+                <div className="icon-box"><MapPin size={20} /></div>
+                <span>Ranchi, Jharkhand</span>
+              </li>
+              <li className="contact-item phone">
+                <div className="icon-box"><Phone size={20} /></div>
+                <a href="tel:+916207383145">+91 62073 83145</a>
+              </li>
+              <li className="contact-item mail">
+                <div className="icon-box"><Mail size={20} /></div>
+                <a href="mailto:info@vidyaacademy.com">info@vidyaacademy.com</a>
+              </li>
             </ul>
           </div>
 

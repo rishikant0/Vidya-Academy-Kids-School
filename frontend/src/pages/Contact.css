@@ -199,6 +199,18 @@
   align-items: center;
   justify-content: center;
   background: #f1f5f9;
+  transition: 0.3s;
+}
+
+/* Color Variants */
+.info-card-v3.pink .icon-circle { background: #ff7ebd; color: white; }
+.info-card-v3.blue .icon-circle { background: #60a5fa; color: white; }
+.info-card-v3.yellow .icon-circle { background: #fbbf24; color: white; }
+.info-card-v3.purple .icon-circle { background: #a855f7; color: white; }
+
+.info-card-v3:hover .icon-circle {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* ================= FORM ================= */

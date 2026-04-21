@@ -22,6 +22,15 @@ import p12 from '../assets/gallery/p12.jpeg';
 import p13 from '../assets/gallery/p13.jpeg';
 import p14 from '../assets/gallery/p14.jpeg';
 import p15 from '../assets/gallery/p15.jpeg';
+import gardeningActivity from '../assets/gallery/gardening_activity.jpg';
+import santaKid2 from '../assets/gallery/santa_kid_2.jpg';
+import playgroundSwings from '../assets/gallery/playground_swings.jpg';
+import krishnaCostume from '../assets/gallery/krishna_costume.jpg';
+import krishnaCostume2 from '../assets/gallery/krishna_costume_2.jpg';
+import redDayActivity from '../assets/gallery/red_day_activity.jpg';
+import rockingHorseFun from '../assets/gallery/rocking_horse_fun.jpg';
+import ballPoolSplash from '../assets/gallery/ball_pool_splash.jpg';
+import indoorSlideFun from '../assets/gallery/indoor_slide_fun.jpg';
 
 const Gallery = () => {
   const [filter, setFilter] = useState('All');
@@ -30,12 +39,12 @@ const Gallery = () => {
   const categories = ['All', 'School', 'Classroom', 'Activity', 'Events'];
 
   const allPhotos = useMemo(() => [
-    { id: 1, title: 'Campus View', img: heroBg, tag: 'School', size: 'large' },
+    // { id: 1, title: 'Campus View', img: heroBg, tag: 'School', size: 'large' },
     { id: 2, title: 'Christmas Fun', img: santaKids, tag: 'Events', size: 'medium' },
     { id: 3, title: 'Clay Modeling', img: clayActivity, tag: 'Activity', size: 'small' },
     { id: 4, title: 'Outdoor Sports', img: outdoorPlay, tag: 'Activity', size: 'medium' },
     { id: 5, title: 'Playground Fun', img: kidsSlide, tag: 'Activity', size: 'small' },
-    { id: 6, title: 'Front Office', img: gallery1, tag: 'School', size: 'medium' },
+    
     { id: 7, title: 'Smart Learning', img: p4, tag: 'Classroom', size: 'large' },
     { id: 8, title: 'Caring Staff', img: p5, tag: 'Classroom', size: 'small' },
     { id: 9, title: 'Art & Craft', img: p6, tag: 'Activity', size: 'medium' },
@@ -47,6 +56,15 @@ const Gallery = () => {
     { id: 15, title: 'Annual Day', img: p12, tag: 'Events', size: 'medium' },
     { id: 16, title: 'School Building', img: p14, tag: 'School', size: 'large' },
     { id: 17, title: 'Assembly Hall', img: p15, tag: 'School', size: 'medium' },
+    { id: 18, title: 'Plantation Day', img: gardeningActivity, tag: 'Activity', size: 'large' },
+    { id: 19, title: 'Little Santa', img: santaKid2, tag: 'Events', size: 'small' },
+    { id: 20, title: 'Park Fun', img: playgroundSwings, tag: 'Activity', size: 'medium' },
+    { id: 21, title: 'Krishna Celebration', img: krishnaCostume, tag: 'Events', size: 'large' },
+    { id: 22, title: 'Religious Costume Day', img: krishnaCostume2, tag: 'Events', size: 'medium' },
+    { id: 23, title: 'Red Day Celebration', img: redDayActivity, tag: 'Events', size: 'medium' },
+    { id: 24, title: 'Rocking Horse Fun', img: rockingHorseFun, tag: 'Activity', size: 'small' },
+    { id: 25, title: 'Pool Splash', img: ballPoolSplash, tag: 'Activity', size: 'large' },
+    { id: 26, title: 'Indoor Play Zone', img: indoorSlideFun, tag: 'Activity', size: 'medium' },
   ], []);
 
   const filteredPhotos = useMemo(() => {

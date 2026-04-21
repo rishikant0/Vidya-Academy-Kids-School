@@ -1,0 +1,141 @@
+/* SECTION BACKGROUND */
+.shanti-programmes {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #fdf4ff, #f0f9ff);
+}
+
+/* HEADER */
+.shanti-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.shanti-label {
+  background: #e0f2fe;
+  color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.shanti-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 10px;
+}
+
+.shanti-subheading {
+  color: #64748b;
+  margin-top: 10px;
+}
+
+/* GRID */
+.shanti-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* CARD */
+.shanti-card {
+  border-radius: 25px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  transition: 0.4s;
+  position: relative;
+}
+
+.shanti-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.shanti-img-wrap {
+  overflow: hidden;
+}
+
+.shanti-img-wrap img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.shanti-card:hover img {
+  transform: scale(1.08);
+}
+
+/* BODY */
+.shanti-body {
+  padding: 20px;
+  text-align: center;
+}
+
+/* TITLE COLORS */
+.shanti-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* COLOR VARIANTS */
+.pink { color: #ec4899; }
+.blue { color: #3b82f6; }
+.orange { color: #f97316; }
+.purple { color: #8b5cf6; }
+
+/* INFO ROW */
+.shanti-info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.shanti-info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.shanti-info-item strong {
+  font-size: 0.9rem;
+}
+
+/* ICON COLORS */
+.icon-pink { color: #ec4899; }
+.icon-blue { color: #3b82f6; }
+.icon-orange { color: #f97316; }
+
+/* BUTTON */
+.shanti-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: black;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.shanti-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(251,191,36,0.4);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .shanti-heading {
+    font-size: 2rem;
+  }
+
+  .shanti-info-row {
+    flex-direction: row;
+    gap: 10px;
+  }
+}

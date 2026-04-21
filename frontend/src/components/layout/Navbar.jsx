@@ -40,9 +40,9 @@ const Navbar = () => {
         <Link to="/" className="logo" onClick={closeMenu}>
           <div className="logo-icon">VA</div>
           <div>
-            <span className="logo-name gradient-text">
-  Vidya Academy
-</span>
+            <span className="logo-name school-red">
+              Vidya Acadmic
+            </span>
             <span className="logo-tagline">Kids School</span>
           </div>
         </Link>
